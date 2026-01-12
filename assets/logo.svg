@@ -1,0 +1,18 @@
+# BrainSait Logo - SVG Format
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Circle Background -->
+  <circle cx="100" cy="100" r="95" fill="url(#brainGradient)" opacity="0.1"/>
+  
+  <!-- Brain Icon -->
+  <path fill="url(#brainGradient)" d="M100,40 C80,40 65,55 65,75 C65,80 66,85 68,89 C58,92 50,101 50,112 C50,125 60,135 72,135 C73,135 74,135 75,134 C78,145 88,153 100,153 C112,153 122,145 125,134 C126,135 127,135 128,135 C140,135 150,125 150,112 C150,101 142,92 132,89 C134,85 135,80 135,75 C135,55 120,40 100,40 Z M90,65 C93,65 95,67 95,70 C95,73 93,75 90,75 C87,75 85,73 85,70 C85,67 87,65 90,65 Z M110,65 C113,65 115,67 115,70 C115,73 113,75 110,75 C107,75 105,73 105,70 C105,67 107,65 110,65 Z M75,95 C75,92 77,90 80,90 C83,90 85,92 85,95 C85,105 90,113 100,115 C110,113 115,105 115,95 C115,92 117,90 120,90 C123,90 125,92 125,95 C125,110 115,123 100,125 C85,123 75,110 75,95 Z"/>
+  
+  <!-- Text -->
+  <text x="100" y="175" font-family="Outfit, sans-serif" font-size="24" font-weight="bold" fill="url(#brainGradient)" text-anchor="middle">BrainSait</text>
+</svg>
