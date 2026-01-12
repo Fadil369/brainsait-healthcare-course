@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BrainSait Interactive Online Course - Healthcare Data Insights in English and Arabic">
-    <meta name="keywords" content="healthcare, data silos, FHIR, interoperability, BrainSait, online course">
+    <meta name="description" content="BrainSait Interactive Online Course - Healthcare Data Insights for Saudi Arabia in English and Arabic">
+    <meta name="keywords" content="healthcare, data silos, FHIR, interoperability, Saudi Arabia, Vision 2030, NPHIES, BrainSait, online course">
     <meta name="author" content="BrainSait">
     <title>BrainSait - Healthcare Data Insights Interactive Course</title>
     
@@ -710,16 +710,16 @@
                     
                     <div class="space-y-4">
                         <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="A) $1.5 trillion" data-ar="أ) 1.5 تريليون دولار">A) $1.5 trillion</span>
+                            <span data-en="A) 5.6 trillion SAR" data-ar="أ) 5.6 تريليون ريال">A) 5.6 trillion SAR</span>
                         </div>
                         <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, true)">
-                            <span data-en="B) $3.1 trillion" data-ar="ب) 3.1 تريليون دولار">B) $3.1 trillion</span>
+                            <span data-en="B) 11.6 trillion SAR" data-ar="ب) 11.6 تريليون ريال">B) 11.6 trillion SAR</span>
                         </div>
                         <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="C) $5.2 trillion" data-ar="ج) 5.2 تريليون دولار">C) $5.2 trillion</span>
+                            <span data-en="C) 19.5 trillion SAR" data-ar="ج) 19.5 تريليون ريال">C) 19.5 trillion SAR</span>
                         </div>
                         <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="D) $2.8 trillion" data-ar="د) 2.8 تريليون دولار">D) $2.8 trillion</span>
+                            <span data-en="D) 10.5 trillion SAR" data-ar="د) 10.5 تريليون ريال">D) 10.5 trillion SAR</span>
                         </div>
                     </div>
                     
@@ -736,9 +736,9 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">$3.1T</div>
-                    <p class="text-gray-300 font-semibold mb-1" data-en="Annual Cost of Data Silos" data-ar="التكلفة السنوية لصوامع البيانات">Annual Cost of Data Silos</p>
-                    <p class="text-xs text-gray-400" data-en="Global healthcare inefficiency" data-ar="عدم الكفاءة الصحية العالمية">Global healthcare inefficiency</p>
+                    <div class="text-5xl font-bold gradient-text mb-2">11.6T</div>
+                    <p class="text-gray-300 font-semibold mb-1" data-en="SAR Annual Cost" data-ar="التكلفة السنوية بالريال">SAR Annual Cost</p>
+                    <p class="text-xs text-gray-400" data-en="Global data silos waste" data-ar="هدر صوامع البيانات العالمية">Global data silos waste</p>
                 </div>
                 <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
                     <div class="text-5xl font-bold gradient-text mb-2">11,400+</div>
@@ -862,12 +862,12 @@
                 element.classList.add('correct');
                 feedback.className = 'mt-6 p-4 rounded-lg bg-green-500 bg-opacity-20 border border-green-500';
                 feedback.innerHTML = '<i class="fas fa-check-circle mr-2"></i>' + 
-                    (currentLang === 'en' ? 'Correct! Great job!' : 'صحيح! عمل رائع!');
+                    (currentLang === 'en' ? 'Correct! The global cost is 11.6 trillion SAR ($3.1T USD) annually!' : 'صحيح! التكلفة العالمية 11.6 تريليون ريال (3.1 تريليون دولار) سنويًا!');
             } else {
                 element.classList.add('wrong');
                 feedback.className = 'mt-6 p-4 rounded-lg bg-red-500 bg-opacity-20 border border-red-500';
                 feedback.innerHTML = '<i class="fas fa-times-circle mr-2"></i>' + 
-                    (currentLang === 'en' ? 'Not quite. The correct answer is $3.1 trillion.' : 'ليس تمامًا. الإجابة الصحيحة هي 3.1 تريليون دولار.');
+                    (currentLang === 'en' ? 'Not quite. The correct answer is 11.6 trillion SAR ($3.1T USD).' : 'ليس تمامًا. الإجابة الصحيحة هي 11.6 تريليون ريال (3.1 تريليون دولار).');
             }
             
             feedback.classList.remove('hidden');
@@ -934,7 +934,7 @@
             const moduleName = currentLang === 'en' ? `Module ${moduleNumber}` : `الوحدة ${moduleNumber}`;
             
             // Check if module page exists
-            if (moduleNumber === 1) {
+            if (moduleNumber === 1 || moduleNumber === 2) {
                 window.location.href = `modules/module${moduleNumber}.html`;
             } else {
                 showToast(currentLang === 'en' ? `Opening ${moduleName}...` : `جاري فتح ${moduleName}...`);
