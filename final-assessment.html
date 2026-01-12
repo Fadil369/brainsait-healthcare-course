@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Assessment | BrainSait Healthcare Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/theme.css">
+    <script src="assets/course.js" defer></script>
+    <script src="assets/quiz.js" defer></script>
+</head>
+<body class="min-h-screen">
+    <!-- Language Toggle Bar -->
+    <nav class="fixed top-4 right-4 z-50">
+        <button onclick="toggleLanguage()" class="bs-btn" aria-label="Toggle language">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-indicator">EN</span>
+        </button>
+    </nav>
+    
+    <div class="bs-container">
+        <!-- Header -->
+        <div class="mb-12">
+            <a href="index.html" class="inline-flex items-center gap-2 mb-5 bs-muted hover:text-white transition">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="Back to Course" data-ar="العودة إلى الدورة">Back to Course</span>
+            </a>
+            <div class="bs-card p-6 sm:p-8 mb-6">
+                <h1 class="text-3xl sm:text-5xl font-bold mb-3 bs-title" data-en="Final Assessment" data-ar="التقييم النهائي">
+                    Final Assessment
+                </h1>
+                <p class="text-base sm:text-lg bs-muted" data-en="Test your knowledge of Healthcare Interoperability & FHIR" data-ar="اختبر معرفتك بالتشغيل البيني للرعاية الصحية و FHIR">
+                    Test your knowledge of Healthcare Interoperability & FHIR
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <span class="bs-badge"><i class="far fa-clock"></i><span data-en="45 minutes" data-ar="45 دقيقة">45 minutes</span></span>
+                <span class="bs-badge"><i class="fas fa-graduation-cap"></i><span data-en="Certificate Required" data-ar="شهادة مطلوبة">Certificate Required</span></span>
+                <span class="bs-badge"><i class="fas fa-star"></i><span data-en="Score 80% to Pass" data-ar="احصل على 80٪ للنجاح">Score 80% to Pass</span></span>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <section class="bs-card p-6 sm:p-8 mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="Assessment Instructions" data-ar="تعليمات التقييم">
+                Assessment Instructions
+            </h2>
+            
+            <div class="space-y-4 bs-muted">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <p data-en="This final assessment covers all 6 modules of the Healthcare Interoperability & FHIR Mastery course." data-ar="يغطي هذا التقييم النهائي جميع الوحدات الست لدورة إتقان التشغيل البيني للرعاية الصحية و FHIR.">
+                        This final assessment covers all 6 modules of the Healthcare Interoperability & FHIR Mastery course.
+                    </p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <p data-en="You must score 80% or higher to earn your certificate." data-ar="يجب أن تحصل على 80٪ أو أكثر للحصول على شهادتك.">
+                        You must score 80% or higher to earn your certificate.
+                    </p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <p data-en="You can review your answers before submitting." data-ar="يمكنك مراجعة إجاباتك قبل التقديم.">
+                        You can review your answers before submitting.
+                    </p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <p data-en="Your progress is saved automatically as you answer questions." data-ar="يتم حفظ تقدمك تلقائيًا أثناء إجابتك على الأسئلة.">
+                        Your progress is saved automatically as you answer questions.
+                    </p>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                    <p data-en="Once submitted, you cannot retake the assessment without clearing your browser data." data-ar="بعد التقديم، لا يمكنك إعادة التقييم دون مسح بيانات المتصفح.">
+                        Once submitted, you cannot retake the assessment without clearing your browser data.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-6 bs-card-inner">
+                <h3 class="text-lg font-bold mb-3 bs-title" data-en="Ready to Begin?" data-ar="مستعد للبدء؟">Ready to Begin?</h3>
+                <p class="bs-muted" data-en="Take a deep breath and focus. You've got this! Click the button below when you're ready to start the assessment." data-ar="خذ نفسًا عميقًا وركز. يمكنك القيام بذلك! انقر على الزر أدناه عندما تكون مستعدًا لبدء التقييم.">
+                    Take a deep breath and focus. You've got this! Click the button below when you're ready to start the assessment.
+                </p>
+            </div>
+        </section>
+
+        <!-- Assessment Content -->
+        <section class="bs-card p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="Final Assessment Questions" data-ar="أسئلة التقييم النهائي">
+                Final Assessment Questions
+            </h2>
+            
+            <div id="final-assessment">
+                <!-- Quiz questions will be inserted here by quiz.js -->
+                <div class="text-center py-12">
+                    <div class="text-6xl mb-6">📝</div>
+                    <h3 class="text-xl font-bold mb-4" data-en="Loading Assessment..." data-ar="جاري تحميل التقييم...">Loading Assessment...</h3>
+                    <p class="bs-muted" data-en="The assessment questions are being prepared. Please wait a moment." data-ar="يتم تحضير أسئلة التقييم. يرجى الانتظار لحظة.">
+                        The assessment questions are being prepared. Please wait a moment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Summary -->
+        <section class="bs-card p-6 sm:p-8 mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="Your Course Progress" data-ar="تقدمك في الدورة">
+                Your Course Progress
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4" data-en="Module Completion" data-ar="إكمال الوحدات">Module Completion</h3>
+                    <div class="space-y-4">
+                        <!-- Module progress bars will be inserted here -->
+                        <div id="module-progress-summary">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm" data-en="Loading..." data-ar="جاري التحميل...">Loading...</span>
+                                <span class="text-sm">0%</span>
+                            </div>
+                            <div class="bs-card-inner h-2 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-[color:var(--bs-accent)] to-cyan-400" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4" data-en="Quiz Performance" data-ar="أداء الاختبارات">Quiz Performance</h3>
+                    <div class="bs-card-inner p-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold mb-2" id="overall-quiz-score">0%</div>
+                            <p class="bs-muted text-sm" data-en="Overall Quiz Score" data-ar="الدرجة الإجمالية للاختبارات">Overall Quiz Score</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 mt-12">
+            <a href="modules/module6.html" class="bs-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="Review Module 6" data-ar="مراجعة الوحدة 6">Review Module 6</span>
+            </a>
+            <a href="certificate.html" class="bs-btn" id="view-certificate-btn" style="display: none;">
+                <i class="fas fa-award"></i>
+                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update progress summary
+            function updateProgressSummary() {
+                // Module completion
+                let totalProgress = 0;
+                for (let i = 1; i <= 6; i++) {
+                    const progress = parseInt(localStorage.getItem(`module${i}Progress`) || '0');
+                    totalProgress += progress;
+                }
+                const avgProgress = Math.round(totalProgress / 6);
+                
+                // Update progress bar
+                const progressBar = document.querySelector('#module-progress-summary .h-full');
+                const progressText = document.querySelector('#module-progress-summary span:first-child');
+                const progressPercent = document.querySelector('#module-progress-summary span:last-child');
+                
+                if (progressBar) progressBar.style.width = `${avgProgress}%`;
+                if (progressText) progressText.textContent = 'Course Progress';
+                if (progressPercent) progressPercent.textContent = `${avgProgress}%`;
+                
+                // Update overall quiz score
+                if (window.brainSaitQuiz && window.brainSaitQuiz.getOverallQuizScore) {
+                    const quizScore = window.brainSaitQuiz.getOverallQuizScore();
+                    document.getElementById('overall-quiz-score').textContent = `${quizScore}%`;
+                }
+                
+                // Show certificate button if final score is sufficient
+                const quizScores = JSON.parse(localStorage.getItem('brainSaitQuizScores') || '{}');
+                if (quizScores.final >= 80) {
+                    document.getElementById('view-certificate-btn').style.display = 'inline-flex';
+                }
+            }
+            
+            // Initialize progress summary
+            updateProgressSummary();
+            
+            // Update when language changes
+            if (window.getCourseLang) {
+                window.addEventListener('courseLangChanged', updateProgressSummary);
+            }
+            
+            // Update when quiz scores change
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'brainSaitQuizScores') {
+                    updateProgressSummary();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

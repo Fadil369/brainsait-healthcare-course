@@ -225,6 +225,36 @@
                 </div>
             </section>
 
+            <!-- Mark Module Complete -->
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="Module Completion" data-ar="إكمال الوحدة">Module Completion</h2>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex-1">
+                        <p class="bs-muted mb-3" data-en="Mark this module as complete to track your progress. Your completion status is saved locally in your browser." data-ar="حدد هذه الوحدة كمكتملة لتتبع تقدمك. يتم حفظ حالة الإكمال محليًا في متصفحك.">
+                            Mark this module as complete to track your progress. Your completion status is saved locally in your browser.
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="bs-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span data-en="Current progress:" data-ar="التقدم الحالي:">Current progress:</span>
+                                <span id="module-progress-display">0</span>%
+                            </div>
+                            <div class="bs-badge" id="completion-status-badge">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="In progress" data-ar="قيد التقدم">In progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="mark-complete-btn" class="bs-btn bs-btn-primary px-6 py-3">
+                            <i class="fas fa-check"></i>
+                            <span data-en="Mark Module Complete" data-ar="تحديد الوحدة كمكتملة">Mark Module Complete</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <!-- Navigation -->
             <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
                 <a href="module3.html" class="bs-btn">
@@ -238,5 +268,77 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Module completion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const moduleNumber = 4; // Change this for each module
+            const progressKey = `module${moduleNumber}Progress`;
+            const display = document.getElementById('module-progress-display');
+            const statusBadge = document.getElementById('completion-status-badge');
+            const markCompleteBtn = document.getElementById('mark-complete-btn');
+            
+            function updateProgressDisplay() {
+                const progress = parseInt(localStorage.getItem(progressKey) || '0');
+                if (display) display.textContent = progress;
+                
+                if (statusBadge) {
+                    if (progress >= 100) {
+                        statusBadge.innerHTML = '<i class="fas fa-check-circle"></i><span data-en="Completed" data-ar="مكتمل">Completed</span>';
+                        statusBadge.classList.remove('bg-yellow-500/10', 'border-yellow-500/60');
+                        statusBadge.classList.add('bg-green-500/10', 'border-green-500/60');
+                    } else if (progress >= 50) {
+                        statusBadge.innerHTML = '<i class="fas fa-spinner"></i><span data-en="In progress" data-ar="قيد التقدم">In progress</span>';
+                        statusBadge.classList.remove('bg-green-500/10', 'border-green-500/60');
+                        statusBadge.classList.add('bg-yellow-500/10', 'border-yellow-500/60');
+                    } else {
+                        statusBadge.innerHTML = '<i class="fas fa-clock"></i><span data-en="Not started" data-ar="لم يبدأ">Not started</span>';
+                        statusBadge.classList.remove('bg-green-500/10', 'border-green-500/60', 'bg-yellow-500/10', 'border-yellow-500/60');
+                    }
+                }
+                
+                if (markCompleteBtn) {
+                    if (progress >= 100) {
+                        markCompleteBtn.innerHTML = '<i class="fas fa-check-double"></i><span data-en="Module Completed" data-ar="الوحدة مكتملة">Module Completed</span>';
+                        markCompleteBtn.disabled = true;
+                        markCompleteBtn.classList.remove('bs-btn-primary');
+                        markCompleteBtn.classList.add('bg-green-600/30', 'border-green-500/40');
+                    } else {
+                        markCompleteBtn.innerHTML = '<i class="fas fa-check"></i><span data-en="Mark Module Complete" data-ar="تحديد الوحدة كمكتملة">Mark Module Complete</span>';
+                        markCompleteBtn.disabled = false;
+                        markCompleteBtn.classList.add('bs-btn-primary');
+                        markCompleteBtn.classList.remove('bg-green-600/30', 'border-green-500/40');
+                    }
+                }
+            }
+            
+            if (markCompleteBtn) {
+                markCompleteBtn.addEventListener('click', function() {
+                    localStorage.setItem(progressKey, '100');
+                    updateProgressDisplay();
+                    
+                    // Show confirmation
+                    const originalText = markCompleteBtn.innerHTML;
+                    markCompleteBtn.innerHTML = '<i class="fas fa-check-circle"></i><span data-en="Marked Complete!" data-ar="تم التحديد كمكتمل!">Marked Complete!</span>';
+                    markCompleteBtn.classList.add('bg-green-600/30', 'border-green-500/40');
+                    
+                    setTimeout(() => {
+                        updateProgressDisplay();
+                    }, 1500);
+                    
+                    // Update parent page progress
+                    if (window.parent && window.parent.updateProgressUI) {
+                        window.parent.updateProgressUI();
+                    }
+                });
+            }
+            
+            // Initialize display
+            updateProgressDisplay();
+            
+            // Update when language changes
+            window.addEventListener('courseLangChanged', updateProgressDisplay);
+        });
+    </script>
 </body>
 </html>

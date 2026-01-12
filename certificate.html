@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion | BrainSait</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/theme.css">
+    <script src="assets/course.js" defer></script>
+    <script src="assets/quiz.js" defer></script>
+    <style>
+        .certificate-border {
+            background: linear-gradient(135deg, 
+                rgba(108, 99, 255, 0.1) 0%, 
+                rgba(0, 212, 255, 0.1) 25%, 
+                rgba(108, 99, 255, 0.1) 50%, 
+                rgba(0, 212, 255, 0.1) 75%, 
+                rgba(108, 99, 255, 0.1) 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        
+        .certificate-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, 
+                rgba(108, 99, 255, 0.8), 
+                rgba(0, 212, 255, 0.8), 
+                rgba(108, 99, 255, 0.8));
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        .gold-text {
+            background: linear-gradient(120deg, #FFD700, #FFEC8B, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .seal {
+            background: radial-gradient(circle at center, 
+                rgba(255, 215, 0, 0.2) 0%, 
+                rgba(255, 215, 0, 0.1) 50%, 
+                transparent 70%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            background: linear-gradient(120deg, #FFD700, #FFEC8B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .certificate-border {
+                background: white !important;
+                border: 3px solid #000 !important;
+            }
+            
+            .gold-text {
+                color: #D4AF37 !important;
+                background: none !important;
+                -webkit-text-fill-color: #D4AF37 !important;
+            }
+            
+            .seal {
+                background: none !important;
+                border: 2px solid #D4AF37 !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+    <!-- Language Toggle Bar -->
+    <nav class="fixed top-4 right-4 z-50 no-print">
+        <button onclick="toggleLanguage()" class="bs-btn" aria-label="Toggle language">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-indicator">EN</span>
+        </button>
+    </nav>
+    
+    <div class="bs-container py-12">
+        <!-- Back Button -->
+        <div class="mb-8 no-print">
+            <a href="index.html" class="inline-flex items-center gap-2 bs-muted hover:text-white transition">
+                <i class="fas fa-arrow-left"></i>
+                <span data-en="Back to Course" data-ar="العودة إلى الدورة">Back to Course</span>
+            </a>
+        </div>
+        
+        <!-- Certificate Container -->
+        <div class="max-w-4xl mx-auto">
+            <div class="certificate-border rounded-3xl p-8 sm:p-12 md:p-16">
+                <!-- Certificate Header -->
+                <div class="text-center mb-12">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-24 h-24 seal rounded-full flex items-center justify-center">
+                            <i class="fas fa-award text-4xl gold-text"></i>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 gold-text" style="font-family: 'Playfair Display', serif;">
+                        <span data-en="Certificate of Completion" data-ar="شهادة إتمام">Certificate of Completion</span>
+                    </h1>
+                    
+                    <p class="text-xl bs-muted" data-en="This certifies that" data-ar="تشهد هذه الشهادة بأن">
+                        This certifies that
+                    </p>
+                </div>
+                
+                <!-- Student Name -->
+                <div class="text-center mb-12">
+                    <h2 id="student-name" class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">
+                        <span data-en="[Student Name]" data-ar="[اسم الطالب]">[Student Name]</span>
+                    </h2>
+                    
+                    <div class="w-48 h-1 bg-gradient-to-r from-transparent via-[color:var(--bs-accent)] to-transparent mx-auto"></div>
+                </div>
+                
+                <!-- Course Details -->
+                <div class="text-center mb-12">
+                    <p class="text-xl bs-muted mb-6" data-en="has successfully completed the comprehensive course" data-ar="قد أكمل بنجاح الدورة الشاملة">
+                        has successfully completed the comprehensive course
+                    </p>
+                    
+                    <h3 class="text-3xl sm:text-4xl font-bold mb-4" data-en="Healthcare Interoperability & FHIR Mastery" data-ar="إتقان التشغيل البيني للرعاية الصحية و FHIR">
+                        Healthcare Interoperability & FHIR Mastery
+                    </h3>
+                    
+                    <p class="text-lg bs-muted" data-en="A comprehensive program covering healthcare data standards, FHIR implementation, cloud solutions, and Saudi NPHIES platform" data-ar="برنامج شامل يغطي معايير البيانات الصحية، تنفيذ FHIR، الحلول السحابية، ومنصة نفيس السعودية">
+                        A comprehensive program covering healthcare data standards, FHIR implementation, cloud solutions, and Saudi NPHIES platform
+                    </p>
+                </div>
+                
+                <!-- Course Modules -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold mb-6 text-center" data-en="Course Modules Completed" data-ar="الوحدات الدراسية المكتملة">
+                        Course Modules Completed
+                    </h4>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">📊</div>
+                            <span data-en="Data Landscape" data-ar="مشهد البيانات">Data Landscape</span>
+                        </div>
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">💸</div>
+                            <span data-en="Cost of Silos" data-ar="تكلفة الصوامع">Cost of Silos</span>
+                        </div>
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">🔄</div>
+                            <span data-en="Interoperability" data-ar="التشغيل البيني">Interoperability</span>
+                        </div>
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">☁️</div>
+                            <span data-en="Cloud Solutions" data-ar="الحلول السحابية">Cloud Solutions</span>
+                        </div>
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">🇸🇦</div>
+                            <span data-en="Saudi Frameworks" data-ar="الأطر السعودية">Saudi Frameworks</span>
+                        </div>
+                        <div class="bs-card-inner p-4 text-center">
+                            <div class="text-2xl mb-2">🚀</div>
+                            <span data-en="Future Trends" data-ar="الاتجاهات المستقبلية">Future Trends</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate Details -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">📅</div>
+                        <h5 class="font-bold mb-2" data-en="Date of Completion" data-ar="تاريخ الإتمام">Date of Completion</h5>
+                        <p id="completion-date" class="bs-muted">January 12, 2026</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h5 class="font-bold mb-2" data-en="Final Score" data-ar="الدرجة النهائية">Final Score</h5>
+                        <p id="final-score" class="text-2xl font-bold gold-text">92%</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="text-3xl mb-2">🆔</div>
+                        <h5 class="font-bold mb-2" data-en="Certificate ID" data-ar="معرف الشهادة">Certificate ID</h5>
+                        <p id="certificate-id" class="font-mono bs-muted">BS-HC-FHIR-2026-001</p>
+                    </div>
+                </div>
+                
+                <!-- Signatures -->
+                <div class="grid md:grid-cols-2 gap-12 mt-16 pt-12 border-t border-white/10">
+                    <div class="text-center">
+                        <div class="mb-4">
+                            <div class="w-32 h-32 mx-auto seal rounded-full flex items-center justify-center">
+                                <i class="fas fa-stamp text-5xl gold-text"></i>
+                            </div>
+                        </div>
+                        <div class="signature text-3xl mb-2">Faisal Al-Mutairi</div>
+                        <p class="bs-muted" data-en="CEO & Founder" data-ar="المدير التنفيذي والمؤسس">CEO & Founder</p>
+                        <p class="text-sm bs-muted" data-en="BrainSait برينسايت" data-ar="برينسايت">BrainSait برينسايت</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="mb-4">
+                            <div class="w-32 h-32 mx-auto seal rounded-full flex items-center justify-center">
+                                <i class="fas fa-qrcode text-5xl gold-text"></i>
+                            </div>
+                        </div>
+                        <div class="signature text-3xl mb-2">Digital Signature</div>
+                        <p class="bs-muted" data-en="Verified & Secured" data-ar="متحقق منه وآمن">Verified & Secured</p>
+                        <p class="text-sm bs-muted" data-en="Blockchain Verified" data-ar="متحقق منه بتقنية البلوكشين">Blockchain Verified</p>
+                    </div>
+                </div>
+                
+                <!-- Verification Note -->
+                <div class="mt-12 pt-8 border-t border-white/10 text-center">
+                    <p class="text-sm bs-muted" data-en="This certificate can be verified online at: https://brainsait.com/verify" data-ar="يمكن التحقق من هذه الشهادة عبر الإنترنت على: https://brainsait.com/verify">
+                        This certificate can be verified online at: https://brainsait.com/verify
+                    </p>
+                    <p class="text-xs bs-muted mt-2" data-en="© 2026 BrainSait برينسايت. All rights reserved." data-ar="© 2026 برينسايت. جميع الحقوق محفوظة.">
+                        © 2026 BrainSait برينسايت. All rights reserved.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center no-print">
+                <button id="print-certificate" class="bs-btn bs-btn-primary">
+                    <i class="fas fa-print"></i>
+                    <span data-en="Print Certificate" data-ar="طباعة الشهادة">Print Certificate</span>
+                </button>
+                
+                <button id="download-pdf" class="bs-btn">
+                    <i class="fas fa-download"></i>
+                    <span data-en="Download PDF" data-ar="تحميل PDF">Download PDF</span>
+                </button>
+                
+                <button id="share-certificate" class="bs-btn">
+                    <i class="fas fa-share-alt"></i>
+                    <span data-en="Share Certificate" data-ar="مشاركة الشهادة">Share Certificate</span>
+                </button>
+                
+                <button id="request-email" class="bs-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span data-en="Email Certificate" data-ar="إرسال الشهادة بالبريد">Email Certificate</span>
+                </button>
+            </div>
+            
+            <!-- Email Form (Hidden by default) -->
+            <div id="email-form" class="mt-8 bs-card p-6 hidden no-print">
+                <h3 class="text-xl font-bold mb-4" data-en="Email Certificate" data-ar="إرسال الشهادة بالبريد">Email Certificate</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block mb-2 bs-muted" data-en="Your Name" data-ar="اسمك">Your Name</label>
+                        <input type="text" id="email-name" class="w-full bs-input" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block mb-2 bs-muted" data-en="Email Address" data-ar="عنوان البريد الإلكتروني">Email Address</label>
+                        <input type="email" id="email-address" class="w-full bs-input" placeholder="you@example.com">
+                    </div>
+                    <div class="flex gap-4">
+                        <button id="send-email" class="bs-btn bs-btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-en="Send Certificate" data-ar="إرسال الشهادة">Send Certificate</span>
+                        </button>
+                        <button id="cancel-email" class="bs-btn">
+                            <span data-en="Cancel" data-ar="إلغاء">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('completion-date').textContent = now.toLocaleDateString('en-US', options);
+            
+            // Generate certificate ID
+            const certId = `BS-HC-FHIR-${now.getFullYear()}-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}`;
+            document.getElementById('certificate-id').textContent = certId;
+            
+            // Get final score from localStorage
+            const quizScores = JSON.parse(localStorage.getItem('brainSaitQuizScores') || '{}');
+            const finalScore = quizScores.final || 92;
+            document.getElementById('final-score').textContent = `${finalScore}%`;
+            
+            // Get student name (prompt if not set)
+            let studentName = localStorage.getItem('brainSaitStudentName');
+            if (!studentName) {
+                studentName = prompt('Please enter your name for the certificate:', 'Ahmed Al-Qahtani');
+                if (studentName) {
+                    localStorage.setItem('brainSaitStudentName', studentName);
+                } else {
+                    studentName = 'Ahmed Al-Qahtani';
+                }
+            }
+            document.getElementById('student-name').textContent = studentName;
+            
+            // Print functionality
+            document.getElementById('print-certificate').addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Download PDF functionality
+            document.getElementById('download-pdf').addEventListener('click', function() {
+                alert('PDF download would be generated here. In a production environment, this would use a PDF generation library like jsPDF or html2pdf.');
+            });
+            
+            // Share functionality
+            document.getElementById('share-certificate').addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'My BrainSait Certificate',
+                        text: `I completed the Healthcare Interoperability & FHIR Mastery course with a score of ${finalScore}%!`,
+                        url: window.location.href
+                    }).catch(console.error);
+                } else {
+                    // Fallback: copy to clipboard
+                    navigator.clipboard.writeText(`I completed the BrainSait Healthcare Interoperability & FHIR Mastery course with a score of ${finalScore}%! View my certificate at: ${window.location.href}`);
+                    alert('Certificate link copied to clipboard!');
+                }
+            });
+            
+            // Email form functionality
+            const emailForm = document.getElementById('email-form');
+            const requestEmailBtn = document.getElementById('request-email');
+            const cancelEmailBtn = document.getElementById('cancel-email');
+            const sendEmailBtn = document.getElementById('send-email');
+            
+            requestEmailBtn.addEventListener('click', function() {
+                emailForm.classList.remove('hidden');
+                document.getElementById('email-name').value = studentName;
+            });
+            
+            cancelEmailBtn.addEventListener('click', function() {
+                emailForm.classList.add('hidden');
+            });
+            
+            sendEmailBtn.addEventListener('click', function() {
+                const emailName = document.getElementById('email-name').value;
+                const emailAddress = document.getElementById('email-address').value;
+                
+                if (!emailName || !emailAddress) {
+                    alert('Please enter both name and email address.');
+                    return;
+                }
+                
+                // In a real implementation, this would send to a backend
+                alert(`Certificate would be sent to ${emailAddress}. In production, this would integrate with an email service like SendGrid or AWS SES.`);
+                emailForm.classList.add('hidden');
+            });
+            
+            // Update language display
+            if (window.getCourseLang) {
+                const updateCertificateText = () => {
+                    // Language-specific updates would go here
+                };
+                window.addEventListener('courseLangChanged', updateCertificateText);
+            }
+        });
+    </script>
+</body>
+</html>
