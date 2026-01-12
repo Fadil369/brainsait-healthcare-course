@@ -1,0 +1,116 @@
+/* BrainSait Premium Minimal Theme (mobile-first)
+   Goal: consistent UI across index + modules with fewer colors and stronger typography.
+*/
+
+:root {
+  --bs-bg: #070A12;
+  --bs-panel: rgba(255, 255, 255, 0.05);
+  --bs-panel-strong: rgba(255, 255, 255, 0.07);
+  --bs-border: rgba(255, 255, 255, 0.10);
+  --bs-text: rgba(255, 255, 255, 0.92);
+  --bs-muted: rgba(255, 255, 255, 0.65);
+
+  /* Keep brand, but use sparingly */
+  --bs-brand: #6C63FF;   /* indigo/purple */
+  --bs-accent: #00D4FF;  /* cyan */
+  --bs-success: #00E396;
+  --bs-danger: #FF4757;
+
+  --bs-radius: 18px;
+  --bs-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(108, 99, 255, 0.14), transparent 55%),
+              radial-gradient(900px 520px at 90% 10%, rgba(0, 212, 255, 0.10), transparent 55%),
+              linear-gradient(180deg, #070A12 0%, #090D17 55%, #070A12 100%);
+  color: var(--bs-text);
+}
+
+/* Typography helpers */
+body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+[dir="rtl"] body { font-family: Cairo, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.bs-title { font-family: Outfit, Inter, system-ui, sans-serif; letter-spacing: -0.02em; }
+[dir="rtl"] .bs-title { font-family: Cairo, system-ui, sans-serif; }
+
+.bs-muted { color: var(--bs-muted); }
+
+/* Layout */
+.bs-container { max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem; }
+@media (min-width: 640px) { .bs-container { padding: 3rem 1.5rem; } }
+
+/* Surfaces */
+.bs-card {
+  background: var(--bs-panel);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius);
+  box-shadow: var(--bs-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.bs-card-inner {
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: calc(var(--bs-radius) - 6px);
+}
+
+/* Buttons */
+.bs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.bs-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.085);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.bs-btn-primary {
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: linear-gradient(120deg, rgba(108, 99, 255, 0.75), rgba(0, 212, 255, 0.70));
+  color: #0B1020;
+}
+
+.bs-btn-primary:hover { opacity: 0.95; }
+
+/* Badges */
+.bs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Focus / accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid rgba(0, 212, 255, 0.85);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* RTL spacing for common utility pairs */
+[dir="rtl"] .bs-rtl-flip { transform: scaleX(-1); }
+
+/* Reduce motion when requested */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+}

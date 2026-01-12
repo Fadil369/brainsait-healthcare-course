@@ -1,142 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: Introduction - BrainSait</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --brainsait-primary: #6C63FF;
-            --brainsait-secondary: #4834DF;
-            --brainsait-accent: #00D4FF;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0F0E17 0%, #1a1a2e 50%, #2D2640 100%);
-            background-attachment: fixed;
-            color: #FFFFFE;
-        }
-        
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(108, 99, 255, 0.2);
-            border-radius: 16px;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, var(--brainsait-primary) 0%, var(--brainsait-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 1 | BrainSait</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/theme.css" />
+  <script src="assets/course.js" defer></script>
+  <meta http-equiv="refresh" content="0; url=modules/module1.html" />
 </head>
-<body class="p-6">
-    <div class="max-w-5xl mx-auto">
-        <!-- Header -->
-        <div class="glassmorphism p-6 mb-8 flex justify-between items-center">
-            <div>
-                <h1 class="text-3xl font-bold gradient-text mb-2">Module 1: Introduction</h1>
-                <p class="text-gray-400">Understanding Healthcare Data Landscape</p>
-            </div>
-            <button onclick="window.location.href='index.html'" class="px-4 py-2 glassmorphism hover:opacity-80">
-                <i class="fas fa-home mr-2"></i>Back to Course
-            </button>
-        </div>
-        
-        <!-- Video Lecture -->
-        <div class="glassmorphism p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Video Lecture</h2>
-            <div class="video-container mb-4 bg-gray-800">
-                <!-- Placeholder for video -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-play-circle text-6xl text-gray-600"></i>
-                </div>
-            </div>
-            <p class="text-gray-400">Duration: 15 minutes</p>
-        </div>
-        
-        <!-- Content -->
-        <div class="glassmorphism p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6">Learning Objectives</h2>
-            <ul class="space-y-3">
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-                    <span>Understand the current healthcare data landscape</span>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-                    <span>Identify key stakeholders in healthcare data management</span>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-                    <span>Recognize the importance of data interoperability</span>
-                </li>
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
-                    <span>Learn about the evolution of healthcare IT systems</span>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Quiz -->
-        <div class="glassmorphism p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6">Module Quiz</h2>
-            <div class="space-y-6">
-                <div>
-                    <p class="font-semibold mb-3">1. What is the primary challenge in healthcare data management?</p>
-                    <div class="space-y-2">
-                        <label class="flex items-center p-3 glassmorphism cursor-pointer hover:opacity-80">
-                            <input type="radio" name="q1" class="mr-3">
-                            <span>Lack of data</span>
-                        </label>
-                        <label class="flex items-center p-3 glassmorphism cursor-pointer hover:opacity-80">
-                            <input type="radio" name="q1" class="mr-3">
-                            <span>Data silos and fragmentation</span>
-                        </label>
-                        <label class="flex items-center p-3 glassmorphism cursor-pointer hover:opacity-80">
-                            <input type="radio" name="q1" class="mr-3">
-                            <span>Too much data</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <button class="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-lg font-bold hover:opacity-90">
-                    Submit Quiz
-                </button>
-            </div>
-        </div>
-        
-        <!-- Navigation -->
-        <div class="flex justify-between">
-            <button class="px-6 py-3 glassmorphism opacity-50 cursor-not-allowed">
-                <i class="fas fa-arrow-left mr-2"></i>Previous
-            </button>
-            <button onclick="window.location.href='module2.html'" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-lg font-bold hover:opacity-90">
-                Next Module<i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
+<body class="min-h-screen">
+  <nav class="fixed top-4 right-4 z-50">
+    <button onclick="toggleLanguage()" class="bs-btn" aria-label="Toggle language">
+      <i class="fas fa-language text-xl"></i>
+      <span id="lang-indicator">EN</span>
+    </button>
+  </nav>
+
+  <main class="bs-container">
+    <div class="bs-card p-6 sm:p-8">
+      <h1 class="text-2xl sm:text-3xl font-bold mb-3 bs-title" data-en="Redirecting…" data-ar="جارٍ التحويل…">Redirecting…</h1>
+      <p class="bs-muted mb-6" data-en="This legacy link now points to the updated Module 1 page." data-ar="يشير هذا الرابط القديم الآن إلى صفحة الوحدة 1 المحدثة.">
+        This legacy link now points to the updated Module 1 page.
+      </p>
+      <a class="bs-btn bs-btn-primary" href="modules/module1.html">
+        <span data-en="Open Module 1" data-ar="فتح الوحدة 1">Open Module 1</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
+  </main>
+
+  <script>
+    // Backup redirect in case meta refresh is blocked.
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        window.location.href = 'modules/module1.html';
+      }, 200);
+    });
+  </script>
 </body>
 </html>

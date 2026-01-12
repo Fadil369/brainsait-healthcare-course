@@ -7,70 +7,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/theme.css">
+    <script src="../assets/course.js" defer></script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-cyan-900 to-gray-900 text-white min-h-screen">
+<body class="min-h-screen">
     <!-- Language Toggle Bar -->
     <nav class="fixed top-4 right-4 z-50">
-        <button onclick="toggleLanguage()" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-full transition-all shadow-lg flex items-center gap-2">
+        <button onclick="toggleLanguage()" class="bs-btn" aria-label="Toggle language">
             <i class="fas fa-language text-xl"></i>
             <span id="lang-indicator">EN</span>
         </button>
     </nav>
     
-    <div class="container mx-auto px-6 py-12">
+    <div class="bs-container">
         <!-- Header -->
         <div class="mb-12">
-            <a href="../index.html" class="text-cyan-400 hover:text-cyan-300 mb-4 inline-flex items-center">
-                <i class="fas fa-arrow-left mr-2"></i>
+            <a href="../index.html" class="inline-flex items-center gap-2 mb-5 bs-muted hover:text-white transition">
+                <i class="fas fa-arrow-left"></i>
                 <span data-en="Back to Course" data-ar="العودة إلى الدورة">Back to Course</span>
             </a>
-            <div class="bg-gradient-to-r from-cyan-600 to-blue-600 p-8 rounded-2xl mb-6">
-                <h1 class="text-5xl font-bold mb-4" data-en="Module 4: Cloud Solutions & FHIR" data-ar="الوحدة 4: الحلول السحابية و FHIR">
+            <div class="bs-card p-6 sm:p-8 mb-6">
+                <h1 class="text-3xl sm:text-5xl font-bold mb-3 bs-title" data-en="Module 4: Cloud Solutions & FHIR" data-ar="الوحدة 4: الحلول السحابية و FHIR">
                     Module 4: Cloud Solutions & FHIR
                 </h1>
-                <p class="text-xl opacity-90" data-en="Scalable Infrastructure for Modern Healthcare" data-ar="بنية تحتية قابلة للتوسع للرعاية الصحية الحديثة">
+                <p class="text-base sm:text-lg bs-muted" data-en="Scalable Infrastructure for Modern Healthcare" data-ar="بنية تحتية قابلة للتوسع للرعاية الصحية الحديثة">
                     Scalable Infrastructure for Modern Healthcare
                 </p>
             </div>
-            <div class="flex gap-4 text-sm flex-wrap">
-                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="far fa-clock mr-2"></i><span data-en="30 minutes" data-ar="30 دقيقة">30 minutes</span></span>
-                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-cloud mr-2"></i><span data-en="Cloud & AI" data-ar="السحابة والذكاء الاصطناعي">Cloud & AI</span></span>
-                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-shield-alt mr-2"></i><span data-en="Data Security" data-ar="أمن البيانات">Data Security</span></span>
+            <div class="flex flex-wrap gap-2">
+                <span class="bs-badge"><i class="far fa-clock"></i><span data-en="30 minutes" data-ar="30 دقيقة">30 minutes</span></span>
+                <span class="bs-badge"><i class="fas fa-cloud"></i><span data-en="Cloud & AI" data-ar="السحابة والذكاء الاصطناعي">Cloud & AI</span></span>
+                <span class="bs-badge"><i class="fas fa-shield-alt"></i><span data-en="Data Security" data-ar="أمن البيانات">Data Security</span></span>
             </div>
         </div>
 
         <!-- Content -->
         <div class="space-y-12">
             <!-- Cloud Transformation -->
-            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
-                <h2 class="text-3xl font-bold mb-6 text-cyan-400" data-en="4.1 The Shift to Cloud Healthcare" data-ar="4.1 التحول إلى الرعاية الصحية السحابية">
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="4.1 The Shift to Cloud Healthcare" data-ar="4.1 التحول إلى الرعاية الصحية السحابية">
                     4.1 The Shift to Cloud Healthcare
                 </h2>
                 
-                <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-en="Healthcare organizations are rapidly moving from on-premise data centers to cloud platforms. This shift enables massive scalability, advanced security, and the ability to leverage AI and machine learning on health data." 
+                <p class="bs-muted text-base sm:text-lg mb-6 leading-relaxed" data-en="Healthcare organizations are rapidly moving from on-premise data centers to cloud platforms. This shift enables massive scalability, advanced security, and the ability to leverage AI and machine learning on health data." 
                    data-ar="تنتقل مؤسسات الرعاية الصحية بسرعة من مراكز البيانات المحلية إلى المنصات السحابية. يتيح هذا التحول قابلية توسع هائلة وأمانًا متقدمًا والقدرة على الاستفادة من الذكاء الاصطناعي والتعلم الآلي على البيانات الصحية.">
                     Healthcare organizations are rapidly moving from on-premise data centers to cloud platforms. This shift enables massive scalability, advanced security, and the ability to leverage AI and machine learning on health data.
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gradient-to-br from-blue-900 to-blue-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 flex items-center">
-                            <i class="fas fa-server text-cyan-400 mr-3"></i>
+                    <div class="bs-card-inner p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 flex items-center gap-3 bs-title">
+                            <i class="fas fa-server text-[color:var(--bs-accent)]"></i>
                             <span data-en="On-Premise (Legacy)" data-ar="محلي (تقليدي)">On-Premise (Legacy)</span>
                         </h3>
-                        <ul class="space-y-2 text-gray-300">
+                        <ul class="space-y-2 bs-muted">
                             <li data-en="❌ High capital expenditure (CAPEX)" data-ar="❌ نفقات رأسمالية عالية">❌ High capital expenditure (CAPEX)</li>
                             <li data-en="❌ Limited scalability" data-ar="❌ قابلية توسع محدودة">❌ Limited scalability</li>
                             <li data-en="❌ Maintenance burden on IT staff" data-ar="❌ عبء الصيانة على موظفي تكنولوجيا المعلومات">❌ Maintenance burden on IT staff</li>
                             <li data-en="❌ Data silos are common" data-ar="❌ صوامع البيانات شائعة">❌ Data silos are common</li>
                         </ul>
                     </div>
-                    <div class="bg-gradient-to-br from-green-900 to-green-800 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 flex items-center">
-                            <i class="fas fa-cloud text-white mr-3"></i>
+                    <div class="bs-card-inner p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4 flex items-center gap-3 bs-title">
+                            <i class="fas fa-cloud text-[color:var(--bs-accent)]"></i>
                             <span data-en="Cloud Computing (Modern)" data-ar="الحوسبة السحابية (حديث)">Cloud Computing (Modern)</span>
                         </h3>
-                        <ul class="space-y-2 text-gray-300">
+                        <ul class="space-y-2 bs-muted">
                             <li data-en="✅ Pay-as-you-go (OPEX)" data-ar="✅ الدفع عند الاستخدام">✅ Pay-as-you-go (OPEX)</li>
                             <li data-en="✅ Instant scalability" data-ar="✅ قابلية توسع فورية">✅ Instant scalability</li>
                             <li data-en="✅ Built-in security & compliance" data-ar="✅ أمان وامتثال مدمجان">✅ Built-in security & compliance</li>
@@ -81,61 +83,61 @@
             </section>
 
             <!-- Major Providers & FHIR -->
-            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
-                <h2 class="text-3xl font-bold mb-6 text-blue-400" data-en="4.2 Cloud Providers & FHIR Services" data-ar="4.2 مقدمو الخدمات السحابية وخدمات FHIR">
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="4.2 Cloud Providers & FHIR Services" data-ar="4.2 مقدمو الخدمات السحابية وخدمات FHIR">
                     4.2 Cloud Providers & FHIR Services
                 </h2>
 
-                <p class="text-gray-300 mb-6" data-en="Major cloud providers now offer managed FHIR services, allowing developers to ingest, persist, and query healthcare data without managing complex infrastructure." 
+                <p class="bs-muted mb-6" data-en="Major cloud providers now offer managed FHIR services, allowing developers to ingest, persist, and query healthcare data without managing complex infrastructure." 
                    data-ar="يقدم مقدمو الخدمات السحابية الرئيسيون الآن خدمات FHIR المدارة، مما يسمح للمطورين باستيعاب البيانات الصحية واستمرارها والاستعلام عنها دون إدارة بنية تحتية معقدة.">
                     Major cloud providers now offer managed FHIR services, allowing developers to ingest, persist, and query healthcare data without managing complex infrastructure.
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-6 mb-6">
                     <!-- Azure -->
-                    <div class="bg-gray-900 border border-blue-500 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                        <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-microsoft"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Azure Health Data Services</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-en="Enterprise-grade FHIR service with strong IoT integration (IoMT Connector)." data-ar="خدمة FHIR على مستوى المؤسسة مع تكامل قوي لإنترنت الأشياء (IoMT).">Enterprise-grade FHIR service with strong IoT integration (IoMT Connector).</p>
-                        <span class="text-xs bg-blue-900 text-blue-200 px-2 py-1 rounded" data-en="Widely used in Saudi Arabia" data-ar="شائع الاستخدام في السعودية">Widely used in Saudi Arabia</span>
+                    <div class="bs-card-inner p-6 hover:bg-white/5 transition">
+                        <div class="text-3xl mb-4 text-[color:var(--bs-accent)]"><i class="fab fa-microsoft"></i></div>
+                        <h3 class="text-lg font-bold mb-2 bs-title">Azure Health Data Services</h3>
+                        <p class="bs-muted text-sm mb-4" data-en="Enterprise-grade FHIR service with strong IoT integration (IoMT Connector)." data-ar="خدمة FHIR على مستوى المؤسسة مع تكامل قوي لإنترنت الأشياء (IoMT).">Enterprise-grade FHIR service with strong IoT integration (IoMT Connector).</p>
+                        <span class="bs-badge" data-en="Widely used in Saudi Arabia" data-ar="شائع الاستخدام في السعودية">Widely used in Saudi Arabia</span>
                     </div>
 
                     <!-- AWS -->
                     <!-- Google Cloud -->
-                    <div class="bg-gray-900 border border-orange-500 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                        <div class="text-4xl mb-4 text-orange-500"><i class="fab fa-amazon"></i></div>
-                        <h3 class="text-xl font-bold mb-2">AWS HealthLake</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-en="Store, transform, and analyze health data with integrated machine learning." data-ar="تخزين وتحويل وتحليل البيانات الصحية مع التعلم الآلي المتكامل.">Store, transform, and analyze health data with integrated machine learning.</p>
+                    <div class="bs-card-inner p-6 hover:bg-white/5 transition">
+                        <div class="text-3xl mb-4 text-[color:var(--bs-accent)]"><i class="fab fa-amazon"></i></div>
+                        <h3 class="text-lg font-bold mb-2 bs-title">AWS HealthLake</h3>
+                        <p class="bs-muted text-sm mb-4" data-en="Store, transform, and analyze health data with integrated machine learning." data-ar="تخزين وتحويل وتحليل البيانات الصحية مع التعلم الآلي المتكامل.">Store, transform, and analyze health data with integrated machine learning.</p>
                     </div>
 
-                    <div class="bg-gray-900 border border-red-500 p-6 rounded-xl hover:transform hover:-translate-y-2 transition duration-300">
-                        <div class="text-4xl mb-4 text-red-500"><i class="fab fa-google"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Google Cloud Healthcare API</h3>
-                        <p class="text-gray-400 text-sm mb-4" data-en="Robust FHIR, HL7 v2, and DICOM support with strong BigQuery integration." data-ar="دعم قوي لـ FHIR و HL7 v2 و DICOM مع تكامل قوي مع BigQuery.">Robust FHIR, HL7 v2, and DICOM support with strong BigQuery integration.</p>
+                    <div class="bs-card-inner p-6 hover:bg-white/5 transition">
+                        <div class="text-3xl mb-4 text-[color:var(--bs-accent)]"><i class="fab fa-google"></i></div>
+                        <h3 class="text-lg font-bold mb-2 bs-title">Google Cloud Healthcare API</h3>
+                        <p class="bs-muted text-sm mb-4" data-en="Robust FHIR, HL7 v2, and DICOM support with strong BigQuery integration." data-ar="دعم قوي لـ FHIR و HL7 v2 و DICOM مع تكامل قوي مع BigQuery.">Robust FHIR, HL7 v2, and DICOM support with strong BigQuery integration.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Saudi Data Residency -->
-            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
-                <h2 class="text-3xl font-bold mb-6 text-green-400" data-en="4.3 Data Residency & Sovereignty in KSA" data-ar="4.3 إقامة البيانات والسيادة في المملكة">
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="4.3 Data Residency & Sovereignty in KSA" data-ar="4.3 إقامة البيانات والسيادة في المملكة">
                     4.3 Data Residency & Sovereignty in KSA
                 </h2>
 
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="w-full md:w-1/3 text-center">
-                        <div class="bg-green-900 bg-opacity-20 p-8 rounded-full inline-block">
-                            <i class="fas fa-shield-virus text-6xl text-green-500"></i>
+                        <div class="bs-card-inner p-8 rounded-full inline-block">
+                            <i class="fas fa-shield-virus text-5xl text-[color:var(--bs-accent)]"></i>
                         </div>
                     </div>
                     <div class="w-full md:w-2/3">
-                        <h3 class="text-2xl font-bold mb-4" data-en="Compliance is Key" data-ar="الامتثال هو المفتاح">Compliance is Key</h3>
-                        <p class="text-gray-300 mb-4" data-en="In Saudi Arabia, the National Data Management Office (NDMO) and National Cybersecurity Authority (NCA) enforce strict regulations ensuring that sensitive health data remains within the Kingdom's geographical borders." 
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 bs-title" data-en="Compliance is Key" data-ar="الامتثال هو المفتاح">Compliance is Key</h3>
+                        <p class="bs-muted mb-4" data-en="In Saudi Arabia, the National Data Management Office (NDMO) and National Cybersecurity Authority (NCA) enforce strict regulations ensuring that sensitive health data remains within the Kingdom's geographical borders." 
                            data-ar="في المملكة العربية السعودية، يفرض مكتب إدارة البيانات الوطنية (NDMO) والهيئة الوطنية للأمن السيبراني (NCA) لوائح صارمة تضمن بقاء البيانات الصحية الحساسة داخل الحدود الجغرافية للمملكة.">
                             In Saudi Arabia, the National Data Management Office (NDMO) and National Cybersecurity Authority (NCA) enforce strict regulations ensuring that sensitive health data remains within the Kingdom's geographical borders.
                         </p>
-                        <div class="bg-gray-700 p-4 rounded-lg border-l-4 border-green-500">
-                            <p class="text-sm text-gray-200" data-en="💡 Leading cloud providers have established local data centers in Saudi Arabia (Regions in Riyadh/Jeddah) to meet these legal requirements, enabling hospitals to use cloud services while staying compliant." 
+                        <div class="bs-card-inner p-4">
+                            <p class="text-sm bs-muted" data-en="💡 Leading cloud providers have established local data centers in Saudi Arabia (Regions in Riyadh/Jeddah) to meet these legal requirements, enabling hospitals to use cloud services while staying compliant." 
                                data-ar="💡 أنشأ مقدمو الخدمات السحابية الرائدون مراكز بيانات محلية في المملكة العربية السعودية (مناطق في الرياض / جدة) لتلبية هذه المتطلبات القانونية، مما يمكن المستشفيات من استخدام الخدمات السحابية مع البقاء متوافقين.">
                                 💡 Leading cloud providers have established local data centers in Saudi Arabia (Regions in Riyadh/Jeddah) to meet these legal requirements, enabling hospitals to use cloud services while staying compliant.
                             </p>
@@ -145,54 +147,54 @@
             </section>
 
             <!-- Deployment Diagram -->
-            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
-                <h2 class="text-3xl font-bold mb-6 text-purple-400" data-en="4.4 Architecture: NPHIES Integration" data-ar="4.4 الهيكلية: تكامل نفيس">
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="4.4 Architecture: NPHIES Integration" data-ar="4.4 الهيكلية: تكامل نفيس">
                     4.4 Architecture: NPHIES Integration
                 </h2>
                 
-                <div class="relative bg-gray-900 p-8 rounded-xl overflow-hidden text-center">
+                <div class="bs-card-inner p-6 sm:p-8 overflow-hidden text-center">
                     <!-- Conceptual Diagram using CSS/HTML -->
                     <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold">
                         
                         <!-- Hospital System -->
-                        <div class="p-4 bg-blue-900 rounded-lg border border-blue-500 w-48">
+                        <div class="p-4 bs-card-inner w-56">
                             <i class="fas fa-hospital text-3xl mb-2"></i><br>
                             <span data-en="Hospital HIS (Legacy)" data-ar="نظام المستشفى">Hospital HIS (Legacy)</span>
-                            <div class="mt-2 text-xs font-normal text-gray-400">HL7 v2 / Proprietary DB</div>
+                            <div class="mt-2 text-xs font-normal bs-muted">HL7 v2 / Proprietary DB</div>
                         </div>
 
                         <!-- Arrow -->
-                        <div class="text-gray-500"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
+                        <div class="bs-muted"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
 
                         <!-- FHIR Converter -->
-                        <div class="p-4 bg-purple-900 rounded-lg border border-purple-500 w-48 animate-pulse">
+                        <div class="p-4 bs-card-inner w-56">
                             <i class="fas fa-cogs text-3xl mb-2"></i><br>
                             <span data-en="FHIR Converter" data-ar="محول FHIR">FHIR Converter</span>
-                            <div class="mt-2 text-xs font-normal text-gray-400">Transform Data</div>
+                            <div class="mt-2 text-xs font-normal bs-muted">Transform Data</div>
                         </div>
 
                         <!-- Arrow -->
-                        <div class="text-gray-500"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
+                        <div class="bs-muted"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
 
                         <!-- Cloud FHIR Store -->
-                        <div class="p-4 bg-cyan-900 rounded-lg border border-cyan-500 w-48">
+                        <div class="p-4 bs-card-inner w-56">
                             <i class="fas fa-cloud text-3xl mb-2"></i><br>
                             <span data-en="Cloud FHIR Store" data-ar="مخزن FHIR السحابي">Cloud FHIR Store</span>
-                            <div class="mt-2 text-xs font-normal text-gray-400">Secure Storage (JSON)</div>
+                            <div class="mt-2 text-xs font-normal bs-muted">Secure Storage (JSON)</div>
                         </div>
 
                         <!-- Arrow -->
-                        <div class="text-gray-500"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
+                        <div class="bs-muted"><i class="fas fa-long-arrow-alt-right text-3xl hidden md:block"></i><i class="fas fa-long-arrow-alt-down text-3xl md:hidden"></i></div>
 
                         <!-- NPHIES -->
-                        <div class="p-4 bg-green-900 rounded-lg border border-green-500 w-48">
+                        <div class="p-4 bs-card-inner w-56">
                             <i class="fas fa-network-wired text-3xl mb-2"></i><br>
                             <span data-en="Saudi NPHIES" data-ar="نفيس السعودية">Saudi NPHIES</span>
-                            <div class="mt-2 text-xs font-normal text-gray-400">National Exchange</div>
+                            <div class="mt-2 text-xs font-normal bs-muted">National Exchange</div>
                         </div>
                     </div>
                     
-                    <p class="mt-8 text-gray-400 text-sm" data-en="Data flows from the hospital legacy system, gets converted to FHIR R4 format in the cloud, and is seamlessly exchanged with the National NPHIES platform." 
+                    <p class="mt-8 bs-muted text-sm" data-en="Data flows from the hospital legacy system, gets converted to FHIR R4 format in the cloud, and is seamlessly exchanged with the National NPHIES platform." 
                        data-ar="تتدفق البيانات من نظام المستشفى القديم، وتتحول إلى تنسيق FHIR R4 في السحابة، ويتم تبادلها بسلاسة مع منصة نفيس الوطنية.">
                         Data flows from the hospital legacy system, gets converted to FHIR R4 format in the cloud, and is seamlessly exchanged with the National NPHIES platform.
                     </p>
@@ -200,22 +202,22 @@
             </section>
 
             <!-- Knowledge Check -->
-            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
-                <h2 class="text-3xl font-bold mb-6" data-en="💡 Knowledge Check" data-ar="💡 اختبار المعرفة">💡 Knowledge Check</h2>
+            <section class="bs-card p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-5 bs-title" data-en="💡 Knowledge Check" data-ar="💡 اختبار المعرفة">💡 Knowledge Check</h2>
                 
                 <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-bold mb-4" data-en="Which organization helps enforce data residency regulations in Saudi Arabia?" data-ar="أي منظمة تساعد في فرض لوائح إقامة البيانات في المملكة العربية السعودية؟">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4" data-en="Which organization helps enforce data residency regulations in Saudi Arabia?" data-ar="أي منظمة تساعد في فرض لوائح إقامة البيانات في المملكة العربية السعودية؟">
                             Which organization helps enforce data residency regulations in Saudi Arabia?
                         </h3>
                         <div class="space-y-3">
-                            <button class="w-full text-left p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition" onclick="alert('Incorrect. Try again!')">
+                            <button class="w-full text-left p-4 bs-card-inner hover:bg-white/5 transition" type="button">
                                 <span data-en="A) FDA" data-ar="أ) FDA">A) FDA</span>
                             </button>
-                            <button class="w-full text-left p-4 bg-green-700 border-2 border-green-400 rounded-lg">
+                            <button class="w-full text-left p-4 bs-card-inner border border-green-500/60 bg-green-500/10" type="button">
                                 <span data-en="B) NDMO / NCA ✓" data-ar="ب) NDMO / NCA ✓">B) NDMO / NCA ✓</span>
                             </button>
-                            <button class="w-full text-left p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition" onclick="alert('Incorrect. Try again!')">
+                            <button class="w-full text-left p-4 bs-card-inner hover:bg-white/5 transition" type="button">
                                 <span data-en="C) WHO" data-ar="ج) WHO">C) WHO</span>
                             </button>
                         </div>
@@ -224,58 +226,17 @@
             </section>
 
             <!-- Navigation -->
-            <div class="flex justify-between items-center">
-                <a href="module3.html" class="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full transition">
-                    <i class="fas fa-arrow-left mr-2"></i>
+            <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
+                <a href="module3.html" class="bs-btn">
+                    <i class="fas fa-arrow-left"></i>
                     <span data-en="Previous Module" data-ar="الوحدة السابقة">Previous Module</span>
                 </a>
-                <a href="module5.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-500 rounded-full hover:opacity-90 transition">
+                <a href="module5.html" class="bs-btn bs-btn-primary">
                     <span data-en="Next: National Frameworks" data-ar="التالي: الأطر الوطنية">Next: National Frameworks</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </div>
-
-    <script>
-        let currentLang = 'en';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            const html = document.documentElement;
-            
-            if (currentLang === 'ar') {
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-                document.getElementById('lang-indicator').textContent = 'AR';
-            } else {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-                document.getElementById('lang-indicator').textContent = 'EN';
-            }
-            
-            updateContent();
-            localStorage.setItem('courseLang', currentLang);
-        }
-        
-        function updateContent() {
-            const elements = document.querySelectorAll('[data-en][data-ar]');
-            elements.forEach(el => {
-                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = text;
-                } else {
-                    el.textContent = text;
-                }
-            });
-        }
-
-        window.onload = function() {
-            const savedLang = localStorage.getItem('courseLang');
-            if (savedLang && savedLang === 'ar') {
-                toggleLanguage(); // This sets valid state
-            }
-        };
-    </script>
 </body>
 </html>

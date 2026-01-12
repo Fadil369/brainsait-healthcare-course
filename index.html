@@ -1,1009 +1,448 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BrainSait Interactive Online Course - Healthcare Data Insights for Saudi Arabia in English and Arabic">
-    <meta name="keywords" content="healthcare, data silos, FHIR, interoperability, Saudi Arabia, Vision 2030, NPHIES, BrainSait, online course">
-    <meta name="author" content="BrainSait">
-    <title>BrainSait - Healthcare Data Insights Interactive Course</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236C63FF'/%3E%3Cstop offset='100%25' style='stop-color:%2300D4FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='40' text-anchor='middle' fill='white'%3E🧠%3C/text%3E%3C/svg%3E">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="BrainSait - Healthcare Data Insights">
-    <meta property="og:description" content="Interactive bilingual online course on healthcare data silos and interoperability">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://fadil369.github.io/brainsait-healthcare-course/assets/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.04); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8B7BFF 0%, #4834DF 100%); border-radius: 10px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BrainSait Interactive Course (EN/AR) — Healthcare Interoperability for Saudi Arabia (NPHIES, FHIR, Cloud)." />
+  <title>BrainSait — Healthcare Data Insights (EN/AR)</title>
 
-        /* Root Variables - BrainSait Brand Colors */
-        :root {
-            --brainsait-primary: #6C63FF;
-            --brainsait-secondary: #4834DF;
-            --brainsait-accent: #00D4FF;
-            --brainsait-dark: #0F0E17;
-            --brainsait-light: #FFFFFE;
-            --brainsait-gray: #A7A9BE;
-            --brainsait-success: #00E396;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        /* Typography */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.18), transparent 32%),
-                        radial-gradient(circle at 80% 0%, rgba(0, 212, 255, 0.18), transparent 28%),
-                        linear-gradient(135deg, #0F0E17 0%, #1a1a2e 50%, #141022 100%);
-            background-attachment: fixed;
-            color: var(--brainsait-light);
-            overflow-x: hidden;
-        }
-
-        body[dir="rtl"] {
-            font-family: 'Cairo', sans-serif;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3 {
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--brainsait-primary) 0%, var(--brainsait-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease infinite;
-            background-size: 200% auto;
-        }
-
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 60px 0 rgba(13, 17, 38, 0.65);
-            border-radius: 18px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glassmorphism::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 15% 20%, rgba(108, 99, 255, 0.18), transparent 35%),
-                        radial-gradient(circle at 80% 30%, rgba(0, 212, 255, 0.16), transparent 32%);
-            pointer-events: none;
-        }
-
-        .premium-border {
-            position: relative;
-        }
-        .premium-border::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(120deg, rgba(108, 99, 255, 0.8), rgba(0, 212, 255, 0.8));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 24px 70px 0 rgba(0, 0, 0, 0.35);
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .quiz-option {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .quiz-option:hover {
-            background: rgba(108, 99, 255, 0.2);
-            transform: translateX(10px);
-        }
-
-        body[dir="rtl"] .quiz-option:hover {
-            transform: translateX(-10px);
-        }
-
-        .quiz-option.correct {
-            background: rgba(0, 227, 150, 0.2);
-            border-color: var(--brainsait-success);
-        }
-
-        .quiz-option.wrong {
-            background: rgba(255, 71, 87, 0.2);
-            border-color: #FF4757;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 999px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--brainsait-primary), var(--brainsait-accent));
-            transition: width 0.5s ease;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        audio { width: 100%; border-radius: 12px; }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.4rem;
-            border-radius: 999px;
-            background: linear-gradient(120deg, #7C6CFF, #00D4FF);
-            color: #0D0B1F;
-            font-weight: 700;
-            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.35);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
-        }
-
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 50px rgba(108, 99, 255, 0.45); }
-
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.4rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(255, 255, 255, 0.04);
-            color: #fff;
-            transition: all 0.25s ease;
-        }
-
-        .btn-ghost:hover { border-color: rgba(0, 212, 255, 0.6); color: #00D4FF; }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            font-size: 0.8rem;
-        }
-
-        .stats-card {
-            border-radius: 16px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .glow-dot {
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            filter: blur(120px);
-            opacity: 0.4;
-            z-index: -1;
-        }
-
-        /* Missing gradient background class */
-        .brainsait-gradient-bg {
-            background: linear-gradient(135deg, var(--brainsait-primary) 0%, var(--brainsait-secondary) 100%);
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: var(--brainsait-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .preloader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(108, 99, 255, 0.2);
-            border-top-color: var(--brainsait-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* RTL specific fixes */
-        [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
-            --tw-space-x-reverse: 1;
-            margin-right: calc(0.75rem * var(--tw-space-x-reverse));
-            margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-        }
-
-        [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
-            --tw-space-x-reverse: 1;
-            margin-right: calc(1rem * var(--tw-space-x-reverse));
-            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-        }
-
-        [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
-        [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
-
-        /* Focus states for accessibility */
-        button:focus-visible, a:focus-visible {
-            outline: 2px solid var(--brainsait-accent);
-            outline-offset: 2px;
-        }
-
-        /* Skip to content link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--brainsait-primary);
-            color: white;
-            padding: 8px 16px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Animated counter */
-        .counter {
-            display: inline-block;
-        }
-
-        /* Module card shimmer effect */
-        .shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            100% { left: 100%; }
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            background: rgba(0, 227, 150, 0.9);
-            color: #0D0B1F;
-            font-weight: 600;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        [dir="rtl"] .toast {
-            right: auto;
-            left: 2rem;
-        }
-    </style>
+  <link rel="stylesheet" href="assets/theme.css" />
+  <script src="assets/course.js" defer></script>
 </head>
-<body>
-    <!-- Skip to content for accessibility -->
-    <a href="#main-content" class="skip-link" data-en="Skip to content" data-ar="تخطي إلى المحتوى">Skip to content</a>
+<body class="min-h-screen">
+  <!-- Top right language toggle -->
+  <nav class="fixed top-4 right-4 z-50">
+    <button onclick="toggleLanguage()" class="bs-btn" aria-label="Toggle language">
+      <i class="fas fa-language text-xl"></i>
+      <span id="lang-indicator">EN</span>
+    </button>
+  </nav>
 
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-spinner"></div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
-    <!-- Ambient Background Decorations -->
-    <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-        <div class="glow-dot bg-purple-600/40 -left-24 top-10"></div>
-        <div class="glow-dot bg-cyan-400/40 right-0 -top-10"></div>
-        <div class="glow-dot bg-purple-800/30 left-1/3 bottom-[-8rem]"></div>
-    </div>
-
-    <!-- Navigation Bar -->
-    <nav class="glassmorphism premium-border fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full brainsait-gradient-bg flex items-center justify-center">
-                    <i class="fas fa-brain text-white text-xl"></i>
-                </div>
-                <h1 class="text-2xl font-bold gradient-text" data-en="BrainSait" data-ar="برين سايت">BrainSait</h1>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <!-- Progress -->
-                <div class="hidden md:flex items-center space-x-2">
-                    <i class="fas fa-chart-line text-cyan-400"></i>
-                    <span class="text-sm" data-en="Progress" data-ar="التقدم">Progress</span>
-                    <span class="text-sm font-bold" id="progress-percent">0%</span>
-                </div>
-                
-                <!-- Language Toggle -->
-                <button onclick="toggleLanguage()" class="px-4 py-2 rounded-lg glassmorphism hover:bg-opacity-20 transition-all">
-                    <i class="fas fa-language text-xl"></i>
-                    <span class="ml-2" id="lang-indicator">EN</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="container mx-auto px-6 pt-32 pb-20 text-center fade-in relative">
-        <div class="floating mb-8">
-            <div class="w-32 h-32 mx-auto rounded-full brainsait-gradient-bg flex items-center justify-center shadow-2xl">
-                <i class="fas fa-graduation-cap text-white text-6xl"></i>
-            </div>
-        </div>
-        
-        <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6" data-en="Healthcare Data Insights" data-ar="رؤى البيانات الصحية">
-            Healthcare Data Insights
-        </h1>
-        
-        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto" 
-           data-en="Interactive Online Course: Unpacking Healthcare Data Silos" 
-           data-ar="دورة تفاعلية عبر الإنترنت: فهم صوامع البيانات الصحية">
-            Interactive Online Course: Unpacking Healthcare Data Silos
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-4 mb-10">
-            <button class="btn-primary" onclick="openModule(1)">
-                <i class="fas fa-play-circle"></i>
-                <span data-en="Start Learning" data-ar="ابدأ التعلم">Start Learning</span>
-            </button>
-            <button class="btn-ghost" onclick="downloadResources()">
-                <i class="fas fa-cloud-download-alt"></i>
-                <span data-en="Download Syllabus" data-ar="تحميل المنهج">Download Syllabus</span>
-            </button>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <div class="glassmorphism px-6 py-3 rounded-full">
-                <i class="fas fa-clock text-cyan-400 mr-2"></i>
-                <span data-en="6 Modules" data-ar="6 وحدات">6 Modules</span>
-            </div>
-            <div class="glassmorphism px-6 py-3 rounded-full">
-                <i class="fas fa-video text-purple-400 mr-2"></i>
-                <span data-en="Interactive Content" data-ar="محتوى تفاعلي">Interactive Content</span>
-            </div>
-            <div class="glassmorphism px-6 py-3 rounded-full">
-                <i class="fas fa-certificate text-green-400 mr-2"></i>
-                <span data-en="Certificate" data-ar="شهادة">Certificate</span>
-            </div>
+  <main class="bs-container">
+    <!-- Hero -->
+    <header class="bs-card p-6 sm:p-10 mb-10">
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.svg" alt="BrainSait" class="h-10 w-10" />
+          <div class="leading-tight">
+            <div class="text-sm bs-muted" data-en="BrainSait Academy" data-ar="أكاديمية برين سايت">BrainSait Academy</div>
+            <div class="text-lg font-bold bs-title" data-en="Healthcare Data Insights" data-ar="رؤى بيانات الرعاية الصحية">Healthcare Data Insights</div>
+          </div>
         </div>
 
-        <!-- Progress Bar -->
-        <div class="max-w-2xl mx-auto">
-            <div class="progress-bar">
-                <div class="progress-fill" id="main-progress" style="width: 0%"></div>
-            </div>
-            <p class="text-sm text-gray-400 mt-2" data-en="Complete all modules to earn your certificate" data-ar="أكمل جميع الوحدات للحصول على شهادتك">
-                Complete all modules to earn your certificate
-            </p>
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-bold bs-title mb-3" data-en="Interactive Course (EN/AR)" data-ar="دورة تفاعلية (عربي/إنجليزي)">
+            Interactive Course (EN/AR)
+          </h1>
+          <p class="text-base sm:text-lg bs-muted max-w-3xl" data-en="A premium, mobile-first course on interoperability: FHIR, cloud architectures, and Saudi national initiatives (NPHIES) — built for healthcare leaders, product teams, and engineers." data-ar="دورة مميزة ومناسبة للجوال حول التشغيل البيني: FHIR، البنى السحابية، والمبادرات الوطنية في السعودية (نفيس) — مصممة لقادة الرعاية الصحية وفرق المنتجات والمهندسين.">
+            A premium, mobile-first course on interoperability: FHIR, cloud architectures, and Saudi national initiatives (NPHIES) — built for healthcare leaders, product teams, and engineers.
+          </p>
         </div>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="bs-badge"><i class="fas fa-globe"></i><span data-en="Saudi Arabia focus" data-ar="تركيز على السعودية">Saudi Arabia focus</span></span>
+          <span class="bs-badge"><i class="fas fa-file-invoice-dollar"></i><span data-en="SAR-ready examples" data-ar="أمثلة بالريال السعودي">SAR-ready examples</span></span>
+          <span class="bs-badge"><i class="fas fa-plug"></i><span data-en="FHIR + NPHIES" data-ar="FHIR + نفيس">FHIR + NPHIES</span></span>
+          <span class="bs-badge"><i class="fas fa-mobile-screen"></i><span data-en="Mobile-first" data-ar="مناسب للجوال">Mobile-first</span></span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a id="continue-btn" class="bs-btn bs-btn-primary" href="modules/module1.html">
+            <span data-en="Continue" data-ar="متابعة">Continue</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a class="bs-btn" href="#modules">
+            <i class="fas fa-layer-group"></i>
+            <span data-en="Browse modules" data-ar="استعراض الوحدات">Browse modules</span>
+          </a>
+        </div>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main id="main-content" class="container mx-auto px-6 py-12">
-        <!-- Course Modules Grid -->
-        <section class="mb-20">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-en="Course Modules" data-ar="وحدات الدورة">
-                Course Modules
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Module 1 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(1)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-play text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-star text-purple-300"></i>Intro</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>15m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 1: Introduction" data-ar="الوحدة 1: مقدمة">
-                        Module 1: Introduction
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="Understanding Healthcare Data Landscape: Learn how healthcare data is generated, stored, and why fragmentation occurs across systems" 
-                       data-ar="فهم مشهد البيانات الصحية: تعلم كيفية إنشاء البيانات الصحية وتخزينها ولماذا يحدث التجزئة عبر الأنظمة">
-                        Understanding Healthcare Data Landscape: Learn how healthcare data is generated, stored, and why fragmentation occurs across systems
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="1" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-level-up-alt text-purple-300"></i>
-                        <span data-en="Beginner" data-ar="مبتدئ">Beginner</span>
-                    </p>
-                </div>
+    <!-- Progress Overview -->
+    <section class="bs-card p-6 sm:p-8 mb-10" aria-labelledby="progress-title">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h2 id="progress-title" class="text-2xl sm:text-3xl font-bold bs-title" data-en="Your progress" data-ar="تقدمك">Your progress</h2>
+          <p class="bs-muted" data-en="Progress is stored locally in your browser." data-ar="يتم حفظ التقدم محليًا في المتصفح.">Progress is stored locally in your browser.</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sm bs-muted" data-en="Overall completion" data-ar="الإنجاز الإجمالي">Overall completion</div>
+          <div class="text-3xl font-bold bs-title"><span id="overall-progress-value">0</span>%</div>
+        </div>
+      </div>
 
-                <!-- Module 2 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(2)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-database text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-layer-group text-purple-300"></i>Core</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>20m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 2: Data Silos" data-ar="الوحدة 2: صوامع البيانات">
-                        Module 2: Data Silos
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="The Problem and Its Impact: Explore how isolated data systems cost $3.1 trillion annually and affect patient care quality" 
-                       data-ar="المشكلة وتأثيرها: استكشف كيف تكلف أنظمة البيانات المعزولة 3.1 تريليون دولار سنويًا وتؤثر على جودة رعاية المرضى">
-                        The Problem and Its Impact: Explore how isolated data systems cost $3.1 trillion annually and affect patient care quality
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="2" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-signal text-purple-300"></i>
-                        <span data-en="Core Concepts" data-ar="مفاهيم أساسية">Core Concepts</span>
-                    </p>
-                </div>
+      <div class="mt-5">
+        <div class="bs-card-inner p-2">
+          <div id="overall-progress-bar" class="h-3 rounded-full" style="width:0%; background: linear-gradient(120deg, rgba(108, 99, 255, 0.75), rgba(0, 212, 255, 0.70));"></div>
+        </div>
+      </div>
+    </section>
 
-                <!-- Module 3 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(3)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-link text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-plug text-purple-300"></i>API</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>25m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 3: Interoperability" data-ar="الوحدة 3: التشغيل البيني">
-                        Module 3: Interoperability
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="Breaking Down Barriers: Discover solutions for seamless data exchange including HL7, FHIR, and modern APIs" 
-                       data-ar="كسر الحواجز: اكتشف حلول التبادل السلس للبيانات بما في ذلك HL7 و FHIR وواجهات برمجة التطبيقات الحديثة">
-                        Breaking Down Barriers: Discover solutions for seamless data exchange including HL7, FHIR, and modern APIs
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="3" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-star text-yellow-300"></i>
-                        <span data-en="Intermediate" data-ar="متوسط">Intermediate</span>
-                    </p>
-                </div>
+    <!-- Modules -->
+    <section id="modules" class="mb-10" aria-labelledby="modules-title">
+      <div class="flex items-end justify-between gap-4 mb-5">
+        <h2 id="modules-title" class="text-2xl sm:text-3xl font-bold bs-title" data-en="Modules" data-ar="الوحدات">Modules</h2>
+        <a class="bs-btn" href="PROJECT_SUMMARY.md" target="_blank" rel="noreferrer">
+          <i class="fas fa-file"></i>
+          <span data-en="Course summary" data-ar="ملخص الدورة">Course summary</span>
+        </a>
+      </div>
 
-                <!-- Module 4 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(4)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-cloud text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-cloud text-cyan-200"></i>Cloud</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>30m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 4: Cloud Solutions" data-ar="الوحدة 4: الحلول السحابية">
-                        Module 4: Cloud Solutions
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="FHIR and Cloud Services: Master Fast Healthcare Interoperability Resources (FHIR) and cloud-based healthcare platforms" 
-                       data-ar="FHIR والخدمات السحابية: احترف موارد التشغيل البيني السريع للرعاية الصحية (FHIR) ومنصات الرعاية الصحية السحابية">
-                        FHIR and Cloud Services: Master Fast Healthcare Interoperability Resources (FHIR) and cloud-based healthcare platforms
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="4" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-cloud-upload-alt text-cyan-200"></i>
-                        <span data-en="Hands-on" data-ar="تطبيقي">Hands-on</span>
-                    </p>
-                </div>
-
-                <!-- Module 5 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(5)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-network-wired text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-shield-alt text-purple-200"></i>Policy</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>20m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 5: TEFCA Framework" data-ar="الوحدة 5: إطار TEFCA">
-                        Module 5: TEFCA Framework
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="National Interoperability: Learn about Trusted Exchange Framework and Common Agreement connecting 11,400+ organizations" 
-                       data-ar="التشغيل البيني الوطني: تعرف على إطار التبادل الموثوق والاتفاقية المشتركة التي تربط أكثر من 11,400 مؤسسة">
-                        National Interoperability: Learn about Trusted Exchange Framework and Common Agreement connecting 11,400+ organizations
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="5" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-globe text-cyan-200"></i>
-                        <span data-en="Standards" data-ar="المعايير">Standards</span>
-                    </p>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(6)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <span class="badge"><i class="fas fa-forward text-purple-200"></i>Vision</span>
-                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>15m</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 6: Future Outlook" data-ar="الوحدة 6: التوقعات المستقبلية">
-                        Module 6: Future Outlook
-                    </h3>
-                    <p class="text-gray-300 text-center mb-4" 
-                       data-en="The Path Forward: Explore AI, blockchain, and emerging technologies transforming healthcare data interoperability" 
-                       data-ar="الطريق إلى الأمام: استكشف الذكاء الاصطناعي وبلوك تشين والتقنيات الناشئة التي تحول التشغيل البيني لبيانات الرعاية الصحية">
-                        The Path Forward: Explore AI, blockchain, and emerging technologies transforming healthcare data interoperability
-                    </p>
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill module-progress" data-module="6" style="width: 0%"></div>
-                    </div>
-                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
-                        <i class="fas fa-lightbulb text-yellow-300"></i>
-                        <span data-en="Visionary" data-ar="رؤيوي">Visionary</span>
-                    </p>
-                </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Module cards -->
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module1.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 1" data-ar="الوحدة 1">Module 1</div>
+              <div class="text-xl font-bold bs-title" data-en="Foundations" data-ar="الأساسيات">Foundations</div>
+              <p class="bs-muted mt-2" data-en="What data silos are, why they happen, and the real impact in healthcare." data-ar="ما هي صوامع البيانات ولماذا تحدث وتأثيرها الحقيقي في الرعاية الصحية.">What data silos are, why they happen, and the real impact in healthcare.</p>
             </div>
-        </section>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="20m" data-ar="20د">20m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-1">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-1" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
 
-        <!-- Featured Podcast Section -->
-        <section class="glassmorphism premium-border p-8 md:p-12 mb-20 fade-in">
-            <h2 class="text-3xl font-bold text-center mb-8 gradient-text" data-en="Featured Podcast Episode" data-ar="حلقة البودكاست المميزة">
-                Featured Podcast Episode
-            </h2>
-            
-            <div class="flex flex-col lg:flex-row gap-8 items-center">
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <div class="w-64 h-64 rounded-2xl brainsait-gradient-bg flex items-center justify-center floating shadow-2xl">
-                        <i class="fas fa-microphone-alt text-white text-8xl"></i>
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module2.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 2" data-ar="الوحدة 2">Module 2</div>
+              <div class="text-xl font-bold bs-title" data-en="Integration Approaches" data-ar="أساليب التكامل">Integration Approaches</div>
+              <p class="bs-muted mt-2" data-en="From HL7 to integration engines: patterns that connect systems safely." data-ar="من HL7 إلى محركات التكامل: أنماط تربط الأنظمة بأمان.">From HL7 to integration engines: patterns that connect systems safely.</p>
+            </div>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="25m" data-ar="25د">25m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-2">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-2" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module3.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 3" data-ar="الوحدة 3">Module 3</div>
+              <div class="text-xl font-bold bs-title" data-en="Interoperability (FHIR)" data-ar="التشغيل البيني (FHIR)">Interoperability (FHIR)</div>
+              <p class="bs-muted mt-2" data-en="FHIR resources, REST APIs, and the Saudi NPHIES context." data-ar="موارد FHIR وواجهات REST والسياق السعودي لمنصة نفيس.">FHIR resources, REST APIs, and the Saudi NPHIES context.</p>
+            </div>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="25m" data-ar="25د">25m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-3">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-3" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module4.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 4" data-ar="الوحدة 4">Module 4</div>
+              <div class="text-xl font-bold bs-title" data-en="Cloud Solutions" data-ar="الحلول السحابية">Cloud Solutions</div>
+              <p class="bs-muted mt-2" data-en="Managed FHIR services, cloud architectures, and KSA data residency." data-ar="خدمات FHIR المُدارة، والهندسة السحابية، وإقامة البيانات في السعودية.">Managed FHIR services, cloud architectures, and KSA data residency.</p>
+            </div>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="30m" data-ar="30د">30m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-4">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-4" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module5.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 5" data-ar="الوحدة 5">Module 5</div>
+              <div class="text-xl font-bold bs-title" data-en="National Frameworks" data-ar="الأطر الوطنية">National Frameworks</div>
+              <p class="bs-muted mt-2" data-en="NPHIES deep dive + a global comparison (TEFCA)." data-ar="تعمق في نفيس + مقارنة عالمية (TEFCA).">NPHIES deep dive + a global comparison (TEFCA).</p>
+            </div>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="30m" data-ar="30د">30m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-5">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-5" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="bs-card p-6 hover:bg-white/5 transition" href="modules/module6.html">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-sm bs-muted" data-en="Module 6" data-ar="الوحدة 6">Module 6</div>
+              <div class="text-xl font-bold bs-title" data-en="Future Technologies" data-ar="التقنيات المستقبلية">Future Technologies</div>
+              <p class="bs-muted mt-2" data-en="AI, IoMT, privacy, and what’s next for interoperability." data-ar="الذكاء الاصطناعي وإنترنت الأشياء الطبي والخصوصية وما القادم للتشغيل البيني.">AI, IoMT, privacy, and what’s next for interoperability.</p>
+            </div>
+            <span class="bs-badge"><i class="far fa-clock"></i><span data-en="25m" data-ar="25د">25m</span></span>
+          </div>
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2 text-sm">
+              <span class="bs-muted" data-en="Progress" data-ar="التقدم">Progress</span>
+              <span class="bs-muted"><span id="progress-label-6">0</span>%</span>
+            </div>
+            <div class="bs-card-inner p-2">
+              <div id="progress-bar-6" class="h-2 rounded-full" style="width:0%; background: rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Quick knowledge check -->
+    <section class="bs-card p-6 sm:p-8 mb-10" aria-labelledby="quiz-title">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 id="quiz-title" class="text-2xl sm:text-3xl font-bold bs-title" data-en="Quick knowledge check" data-ar="اختبار سريع">Quick knowledge check</h2>
+          <p class="bs-muted" data-en="Tap an option — your selection is highlighted." data-ar="اختر إجابة — سيتم تمييز اختيارك.">Tap an option — your selection is highlighted.</p>
+        </div>
+        <span class="bs-badge"><i class="fas fa-bolt"></i><span data-en="1 question" data-ar="سؤال واحد">1 question</span></span>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-lg sm:text-xl font-bold mb-4" data-en="Which FHIR version does Saudi NPHIES use?" data-ar="أي إصدار من FHIR تستخدمه نفيس السعودية؟">Which FHIR version does Saudi NPHIES use?</h3>
+
+        <div class="space-y-3" id="quiz-options">
+          <button type="button" class="w-full text-left p-4 bs-card-inner hover:bg-white/5 transition" data-correct="false">
+            <span data-en="A) FHIR R3" data-ar="أ) FHIR R3">A) FHIR R3</span>
+          </button>
+          <button type="button" class="w-full text-left p-4 bs-card-inner hover:bg-white/5 transition" data-correct="true">
+            <span data-en="B) FHIR R4" data-ar="ب) FHIR R4">B) FHIR R4</span>
+          </button>
+          <button type="button" class="w-full text-left p-4 bs-card-inner hover:bg-white/5 transition" data-correct="false">
+            <span data-en="C) FHIR R5" data-ar="ج) FHIR R5">C) FHIR R5</span>
+          </button>
+        </div>
+
+        <div id="quiz-feedback" class="mt-4 bs-card-inner p-4 hidden"></div>
+      </div>
+    </section>
+
+    <!-- Podcast / Audio Section -->
+    <section class="bs-card p-6 sm:p-8 mb-10" aria-labelledby="audio-title">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 id="audio-title" class="text-2xl sm:text-3xl font-bold bs-title" data-en="Podcast: Healthcare Interoperability Insights" data-ar="بودكاست: رؤى التشغيل البيني للرعاية الصحية">Podcast: Healthcare Interoperability Insights</h2>
+          <p class="bs-muted" data-en="Listen to industry experts discuss FHIR, NPHIES, and Saudi Arabia's digital health transformation." data-ar="استمع إلى خبراء الصناعة يناقشون FHIR ونفيس والتحول الصحي الرقمي في السعودية.">Listen to industry experts discuss FHIR, NPHIES, and Saudi Arabia's digital health transformation.</p>
+        </div>
+        <span class="bs-badge"><i class="fas fa-headphones"></i><span data-en="Audio" data-ar="صوت">Audio</span></span>
+      </div>
+
+      <div class="mt-6">
+        <div class="bs-card-inner p-6">
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/3 text-center">
+              <div class="bs-card-inner p-8 rounded-full inline-block">
+                <i class="fas fa-podcast text-5xl text-[color:var(--bs-accent)]"></i>
+              </div>
+            </div>
+            <div class="w-full md:w-2/3">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 bs-title" data-en="Episode 1: The Future of Healthcare Data Exchange" data-ar="الحلقة 1: مستقبل تبادل البيانات الصحية">Episode 1: The Future of Healthcare Data Exchange</h3>
+              <p class="bs-muted mb-4" data-en="In this episode, we explore how FHIR and NPHIES are revolutionizing healthcare data exchange in Saudi Arabia and the broader Middle East region." data-ar="في هذه الحلقة، نستكشف كيف يحدث FHIR ونفيس ثورة في تبادل البيانات الصحية في المملكة العربية السعودية ومنطقة الشرق الأوسط الأوسع.">In this episode, we explore how FHIR and NPHIES are revolutionizing healthcare data exchange in Saudi Arabia and the broader Middle East region.</p>
+              
+              <!-- Audio Player -->
+              <div class="mt-6">
+                <div class="flex items-center gap-4 mb-4">
+                  <button class="bs-btn bs-btn-primary p-3 rounded-full" aria-label="Play podcast">
+                    <i class="fas fa-play text-xl"></i>
+                  </button>
+                  <div class="flex-1">
+                    <div class="flex justify-between text-sm bs-muted mb-1">
+                      <span data-en="0:00" data-ar="0:00">0:00</span>
+                      <span data-en="15:30" data-ar="15:30">15:30</span>
                     </div>
+                    <div class="bs-card-inner h-2">
+                      <div class="h-full rounded-full" style="width: 35%; background: linear-gradient(120deg, rgba(108, 99, 255, 0.75), rgba(0, 212, 255, 0.70));"></div>
+                    </div>
+                  </div>
                 </div>
                 
-                <div class="w-full lg:w-2/3">
-                    <h3 class="text-2xl font-bold mb-4" 
-                        data-en="Health Data Insights: Unpacking Healthcare Data Silos" 
-                        data-ar="رؤى البيانات الصحية: فهم صوامع البيانات الصحية">
-                        Health Data Insights: Unpacking Healthcare Data Silos
-                    </h3>
-                    
-                    <p class="text-gray-300 mb-6" 
-                       data-en="Listen to our comprehensive 45-minute podcast exploring healthcare data silos, their $3.1 trillion annual cost impact, patient care implications, and cutting-edge technological solutions. Topics covered: data fragmentation challenges, FHIR standard adoption, TEFCA framework implementation, cloud-based interoperability platforms, AI-powered data integration, and real-world case studies from leading healthcare organizations." 
-                       data-ar="استمع إلى بودكاستنا الشامل لمدة 45 دقيقة يستكشف صوامع البيانات الصحية، وتكلفتها السنوية البالغة 3.1 تريليون دولار، وتداعياتها على رعاية المرضى، والحلول التكنولوجية المتطورة. المواضيع المغطاة: تحديات تجزئة البيانات، اعتماد معيار FHIR، تنفيذ إطار TEFCA، منصات التشغيل البيني السحابية، تكامل البيانات المدعوم بالذكاء الاصطناعي، ودراسات حالة واقعية من مؤسسات الرعاية الصحية الرائدة.">
-                        Listen to our comprehensive 45-minute podcast exploring healthcare data silos, their $3.1 trillion annual cost impact, patient care implications, and cutting-edge technological solutions. Topics covered: data fragmentation challenges, FHIR standard adoption, TEFCA framework implementation, cloud-based interoperability platforms, AI-powered data integration, and real-world case studies from leading healthcare organizations.
-                    </p>
-                    
-                                        <div class="glassmorphism premium-border p-4 rounded-xl mb-4">
-                        <audio controls id="main-audio">
-                            <source src="health-data-podcast.mp3" type="audio/mpeg">
-                            <span data-en="Your browser does not support the audio element." 
-                                  data-ar="متصفحك لا يدعم عنصر الصوت.">
-                                Your browser does not support the audio element.
-                            </span>
-                        </audio>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="showTranscript()" class="px-6 py-3 brainsait-gradient-bg rounded-lg hover:opacity-90 transition-opacity">
-                            <i class="fas fa-file-alt mr-2"></i>
-                            <span data-en="View Transcript" data-ar="عرض النص">View Transcript</span>
-                        </button>
-                        <button onclick="downloadResources()" class="px-6 py-3 glassmorphism rounded-lg hover:bg-opacity-20 transition-all">
-                            <i class="fas fa-download mr-2"></i>
-                            <span data-en="Download Resources" data-ar="تحميل الموارد">Download Resources</span>
-                        </button>
-                    </div>
+                <div class="flex flex-wrap gap-2">
+                  <button class="bs-btn">
+                    <i class="fas fa-step-backward"></i>
+                    <span data-en="15s" data-ar="15ث">15s</span>
+                  </button>
+                  <button class="bs-btn">
+                    <i class="fas fa-step-forward"></i>
+                    <span data-en="15s" data-ar="15ث">15s</span>
+                  </button>
+                  <button class="bs-btn">
+                    <i class="fas fa-volume-up"></i>
+                    <span data-en="Volume" data-ar="الصوت">Volume</span>
+                  </button>
+                  <a href="https://github.com/fadil369/brainsait-healthcare-course/raw/main/assets/podcast-ep1.mp3" class="bs-btn" download>
+                    <i class="fas fa-download"></i>
+                    <span data-en="Download MP3" data-ar="تحميل MP3">Download MP3</span>
+                  </a>
                 </div>
+              </div>
             </div>
-        </section>
-
-        <!-- Interactive Quiz Section -->
-        <section class="mb-20" id="quiz-section">
-            <h2 class="text-3xl font-bold text-center mb-8 gradient-text" data-en="Test Your Knowledge" data-ar="اختبر معلوماتك">
-                Test Your Knowledge
-            </h2>
-            
-            <div class="max-w-3xl mx-auto glassmorphism premium-border p-8">
-                <div id="quiz-content">
-                    <h3 class="text-xl font-bold mb-6" data-en="Question 1: What is the estimated annual cost of healthcare data silos globally?" data-ar="السؤال 1: ما هي التكلفة السنوية المقدرة لصوامع البيانات الصحية عالميًا؟">
-                        Question 1: What is the estimated annual cost of healthcare data silos globally?
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="A) 5.6 trillion SAR" data-ar="أ) 5.6 تريليون ريال">A) 5.6 trillion SAR</span>
-                        </div>
-                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, true)">
-                            <span data-en="B) 11.6 trillion SAR" data-ar="ب) 11.6 تريليون ريال">B) 11.6 trillion SAR</span>
-                        </div>
-                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="C) 19.5 trillion SAR" data-ar="ج) 19.5 تريليون ريال">C) 19.5 trillion SAR</span>
-                        </div>
-                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
-                            <span data-en="D) 10.5 trillion SAR" data-ar="د) 10.5 تريليون ريال">D) 10.5 trillion SAR</span>
-                        </div>
-                    </div>
-                    
-                    <div id="quiz-feedback" class="mt-6 p-4 rounded-lg hidden"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Statistics -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold text-center mb-12 gradient-text" data-en="Key Statistics" data-ar="الإحصائيات الرئيسية">
-                Key Statistics
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">11.6T</div>
-                    <p class="text-gray-300 font-semibold mb-1" data-en="SAR Annual Cost" data-ar="التكلفة السنوية بالريال">SAR Annual Cost</p>
-                    <p class="text-xs text-gray-400" data-en="Global data silos waste" data-ar="هدر صوامع البيانات العالمية">Global data silos waste</p>
-                </div>
-                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">11,400+</div>
-                    <p class="text-gray-300 font-semibold mb-1" data-en="Connected Organizations" data-ar="المنظمات المتصلة">Connected Organizations</p>
-                    <p class="text-xs text-gray-400" data-en="Through TEFCA network" data-ar="عبر شبكة TEFCA">Through TEFCA network</p>
-                </div>
-                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">39M+</div>
-                    <p class="text-gray-300 font-semibold mb-1" data-en="Documents Shared" data-ar="مستندات مشتركة">Documents Shared</p>
-                    <p class="text-xs text-gray-400" data-en="Via TEFCA since launch" data-ar="عبر TEFCA منذ الإطلاق">Via TEFCA since launch</p>
-                </div>
-                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
-                    <div class="text-5xl font-bold gradient-text mb-2">36%</div>
-                    <p class="text-gray-300 font-semibold mb-1" data-en="Annual Data Growth" data-ar="نمو البيانات السنوي">Annual Data Growth</p>
-                    <p class="text-xs text-gray-400" data-en="Healthcare data expansion" data-ar="توسع البيانات الصحية">Healthcare data expansion</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="glassmorphism mx-4 mb-4 p-8 text-center">
-        <div class="flex justify-center items-center space-x-4 mb-6">
-            <div class="w-12 h-12 rounded-full brainsait-gradient-bg flex items-center justify-center">
-                <i class="fas fa-brain text-white text-xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold gradient-text">BrainSait</h3>
+          </div>
         </div>
         
-        <p class="text-gray-400 mb-4" data-en="Empowering Healthcare Through Knowledge" data-ar="تمكين الرعاية الصحية من خلال المعرفة">
-            Empowering Healthcare Through Knowledge
-        </p>
-        
-        <div class="flex justify-center space-x-6 mb-6">
-            <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <i class="fab fa-twitter text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <i class="fab fa-github text-2xl"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <i class="fab fa-youtube text-2xl"></i>
-            </a>
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <div class="bs-card-inner p-4">
+            <h4 class="font-bold mb-2 flex items-center gap-2">
+              <i class="fas fa-microphone"></i>
+              <span data-en="Featured Guests" data-ar="الضيوف المميزون">Featured Guests</span>
+            </h4>
+            <ul class="bs-muted text-sm space-y-1">
+              <li data-en="• Dr. Ahmed Al-Mohammed - NPHIES Technical Lead" data-ar="• د. أحمد المحمد - القائد الفني لنفيس">• Dr. Ahmed Al-Mohammed - NPHIES Technical Lead</li>
+              <li data-en="• Sarah Johnson - FHIR Foundation" data-ar="• سارة جونسون - مؤسسة FHIR">• Sarah Johnson - FHIR Foundation</li>
+              <li data-en="• Eng. Khalid Al-Rashid - Seha Virtual Hospital" data-ar="• م. خالد الرشيد - مستشفى صحة الافتراضي">• Eng. Khalid Al-Rashid - Seha Virtual Hospital</li>
+            </ul>
+          </div>
+          <div class="bs-card-inner p-4">
+            <h4 class="font-bold mb-2 flex items-center gap-2">
+              <i class="fas fa-calendar-alt"></i>
+              <span data-en="Coming Soon" data-ar="قريبًا">Coming Soon</span>
+            </h4>
+            <ul class="bs-muted text-sm space-y-1">
+              <li data-en="• Episode 2: Cloud Solutions for Healthcare" data-ar="• الحلقة 2: الحلول السحابية للرعاية الصحية">• Episode 2: Cloud Solutions for Healthcare</li>
+              <li data-en="• Episode 3: AI in Saudi Healthcare" data-ar="• الحلقة 3: الذكاء الاصطناعي في الرعاية الصحية السعودية">• Episode 3: AI in Saudi Healthcare</li>
+              <li data-en="• Episode 4: Patient Data Privacy" data-ar="• الحلقة 4: خصوصية بيانات المرضى">• Episode 4: Patient Data Privacy</li>
+            </ul>
+          </div>
         </div>
-        
-        <p class="text-sm text-gray-500">
-            © 2026 BrainSait. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span>
-        </p>
+      </div>
+    </section>
+
+    <footer class="py-10 text-center bs-muted">
+      <p>
+        <span data-en="Built with BrainSait premium theme." data-ar="مبني باستخدام ثيم برين سايت المميز.">Built with BrainSait premium theme.</span>
+      </p>
     </footer>
+  </main>
 
-    <!-- JavaScript -->
-    <script>
-        // Language Management
-        let currentLang = 'en';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            const html = document.documentElement;
-            
-            if (currentLang === 'ar') {
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-                document.getElementById('lang-indicator').textContent = 'AR';
-            } else {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-                document.getElementById('lang-indicator').textContent = 'EN';
-            }
-            
-            updateContent();
-            localStorage.setItem('courseLang', currentLang);
-        }
-        
-        function updateContent() {
-            const elements = document.querySelectorAll('[data-en][data-ar]');
-            elements.forEach(el => {
-                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = text;
-                } else {
-                    el.textContent = text;
-                }
-            });
-        }
-        
-        function updateModuleProgress(moduleNumber, percent) {
-            const progressBar = document.querySelector(`[data-module="${moduleNumber}"]`);
-            if (progressBar) {
-                progressBar.style.width = percent + '%';
-            }
-            
-            // Save to localStorage
-            localStorage.setItem(`module${moduleNumber}Progress`, percent);
-        }
-        
-        function updateOverallProgress() {
-            let totalProgress = 0;
-            for (let i = 1; i <= 6; i++) {
-                const progress = localStorage.getItem(`module${i}Progress`) || 0;
-                totalProgress += parseInt(progress);
-            }
-            
-            const overallPercent = Math.round(totalProgress / 6);
-            document.getElementById('main-progress').style.width = overallPercent + '%';
-            document.getElementById('progress-percent').textContent = overallPercent + '%';
-        }
-        
-        // Quiz Management
-        function checkAnswer(element, isCorrect) {
-            const feedback = document.getElementById('quiz-feedback');
-            const options = document.querySelectorAll('.quiz-option');
-            
-            // Disable all options
-            options.forEach(opt => {
-                opt.style.pointerEvents = 'none';
-            });
-            
-            if (isCorrect) {
-                element.classList.add('correct');
-                feedback.className = 'mt-6 p-4 rounded-lg bg-green-500 bg-opacity-20 border border-green-500';
-                feedback.innerHTML = '<i class="fas fa-check-circle mr-2"></i>' + 
-                    (currentLang === 'en' ? 'Correct! The global cost is 11.6 trillion SAR ($3.1T USD) annually!' : 'صحيح! التكلفة العالمية 11.6 تريليون ريال (3.1 تريليون دولار) سنويًا!');
-            } else {
-                element.classList.add('wrong');
-                feedback.className = 'mt-6 p-4 rounded-lg bg-red-500 bg-opacity-20 border border-red-500';
-                feedback.innerHTML = '<i class="fas fa-times-circle mr-2"></i>' + 
-                    (currentLang === 'en' ? 'Not quite. The correct answer is 11.6 trillion SAR ($3.1T USD).' : 'ليس تمامًا. الإجابة الصحيحة هي 11.6 تريليون ريال (3.1 تريليون دولار).');
-            }
-            
-            feedback.classList.remove('hidden');
-        }
-        
-        // Show toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
+  <script>
+    function getModuleProgress(i) {
+      const v = Number(localStorage.getItem(`module${i}Progress`) || 0);
+      return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : 0;
+    }
 
-        // Animated counter
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = counter.getAttribute('data-target');
-                const suffix = counter.getAttribute('data-suffix') || '';
-                const duration = 2000;
-                const start = 0;
-                const increment = target / (duration / 16);
-                let current = start;
-                
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current).toLocaleString() + suffix;
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = Number(target).toLocaleString() + suffix;
-                    }
-                };
-                updateCounter();
-            });
-        }
+    function setProgressBar(i, percent) {
+      const bar = document.getElementById(`progress-bar-${i}`);
+      const label = document.getElementById(`progress-label-${i}`);
+      if (bar) bar.style.width = `${percent}%`;
+      if (label) label.textContent = String(percent);
 
-        // Intersection Observer for animations
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    if (entry.target.classList.contains('stats-section')) {
-                        animateCounters();
-                    }
-                }
-            });
-        }, observerOptions);
+      // Use the brand gradient only once users have progress; otherwise keep it subtle.
+      if (bar) {
+        bar.style.background =
+          percent > 0
+            ? 'linear-gradient(120deg, rgba(108, 99, 255, 0.75), rgba(0, 212, 255, 0.70))'
+            : 'rgba(255,255,255,0.25)';
+      }
+    }
 
-        // Keyboard navigation for quiz
-        document.addEventListener('keydown', (e) => {
-            if (e.key >= '1' && e.key <= '4') {
-                const options = document.querySelectorAll('.quiz-option');
-                const index = parseInt(e.key) - 1;
-                if (options[index] && options[index].style.pointerEvents !== 'none') {
-                    options[index].click();
-                }
-            }
+    function updateProgressUI() {
+      let total = 0;
+      for (let i = 1; i <= 6; i++) {
+        const p = getModuleProgress(i);
+        total += p;
+        setProgressBar(i, p);
+      }
+      const overall = Math.round(total / 6);
+      const overallValue = document.getElementById('overall-progress-value');
+      const overallBar = document.getElementById('overall-progress-bar');
+      if (overallValue) overallValue.textContent = String(overall);
+      if (overallBar) overallBar.style.width = `${overall}%`;
+
+      const continueBtn = document.getElementById('continue-btn');
+      if (continueBtn) {
+        const next = findNextModule();
+        continueBtn.href = `modules/module${next}.html`;
+      }
+    }
+
+    function findNextModule() {
+      for (let i = 1; i <= 6; i++) {
+        if (getModuleProgress(i) < 100) return i;
+      }
+      return 6;
+    }
+
+    function setupQuiz() {
+      const container = document.getElementById('quiz-options');
+      const feedback = document.getElementById('quiz-feedback');
+      if (!container || !feedback) return;
+
+      container.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-correct]');
+        if (!btn) return;
+
+        // reset styles
+        container.querySelectorAll('button[data-correct]').forEach((b) => {
+          b.classList.remove('border', 'bg-green-500/10', 'border-green-500/60', 'bg-red-500/10', 'border-red-500/60');
+          b.classList.add('bs-card-inner');
         });
 
-        // Enhanced module navigation
-        function openModule(moduleNumber) {
-            const moduleName = currentLang === 'en' ? `Module ${moduleNumber}` : `الوحدة ${moduleNumber}`;
-            
-            // Check if module page exists
-            if (moduleNumber >= 1 && moduleNumber <= 6) {
-                window.location.href = `modules/module${moduleNumber}.html`;
-            } else {
-                showToast(currentLang === 'en' ? `Opening ${moduleName}...` : `جاري فتح ${moduleName}...`);
-                
-                // Simulate loading and update progress
-                setTimeout(() => {
-                    updateModuleProgress(moduleNumber, 100);
-                    updateOverallProgress();
-                    showToast(currentLang === 'en' ? `${moduleName} completed!` : `تم إكمال ${moduleName}!`);
-                }, 500);
-            }
+        const correct = btn.getAttribute('data-correct') === 'true';
+        if (correct) {
+          btn.classList.add('border', 'bg-green-500/10', 'border-green-500/60');
+          feedback.classList.remove('hidden');
+          feedback.classList.remove('border-red-500/60', 'bg-red-500/10');
+          feedback.classList.add('border', 'border-green-500/60', 'bg-green-500/10');
+          feedback.textContent = (window.getCourseLang && window.getCourseLang() === 'ar')
+            ? 'صحيح — نفيس تستخدم FHIR R4.'
+            : 'Correct — NPHIES uses FHIR R4.';
+
+          // Gentle nudge: mark Module 3 as started.
+          const current = getModuleProgress(3);
+          if (current < 15) localStorage.setItem('module3Progress', '15');
+          updateProgressUI();
+        } else {
+          btn.classList.add('border', 'bg-red-500/10', 'border-red-500/60');
+          feedback.classList.remove('hidden');
+          feedback.classList.remove('border-green-500/60', 'bg-green-500/10');
+          feedback.classList.add('border', 'border-red-500/60', 'bg-red-500/10');
+          feedback.textContent = (window.getCourseLang && window.getCourseLang() === 'ar')
+            ? 'ليست هذه الإجابة. حاول مرة أخرى.'
+            : 'Not quite. Try again.';
         }
+      });
 
-        // Show Transcript with modal
-        function showTranscript() {
-            showToast(currentLang === 'en' ? 'Loading transcript...' : 'جاري تحميل النص...');
-        }
+      // Update feedback language when toggling language.
+      window.addEventListener('courseLangChanged', () => {
+        if (feedback.classList.contains('hidden')) return;
+        // Re-trigger by simulating a click on the selected option (if any)
+        const selected = container.querySelector('button.border[data-correct]');
+        if (selected) selected.click();
+      });
+    }
 
-        // Download Resources
-        function downloadResources() {
-            showToast(currentLang === 'en' ? 'Preparing download...' : 'جاري تحضير التحميل...');
-        }
-
-        // Reset quiz
-        function resetQuiz() {
-            const options = document.querySelectorAll('.quiz-option');
-            options.forEach(opt => {
-                opt.style.pointerEvents = 'auto';
-                opt.classList.remove('correct', 'wrong');
-            });
-            document.getElementById('quiz-feedback').classList.add('hidden');
-        }
-
-        // Initialize
-        window.onload = function() {
-            // Hide preloader
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 800);
-
-            // Load saved language preference
-            const savedLang = localStorage.getItem('courseLang');
-            if (savedLang && savedLang === 'ar') {
-                currentLang = 'ar';
-                document.documentElement.setAttribute('lang', 'ar');
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.getElementById('lang-indicator').textContent = 'AR';
-            }
-
-            updateOverallProgress();
-            updateContent();
-
-            // Setup intersection observers
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-
-            // Log welcome message
-            console.log('%c🧠 BrainSait Healthcare Course', 'color: #6C63FF; font-size: 20px; font-weight: bold;');
-            console.log('%cWelcome! Powered by BrainSait', 'color: #00D4FF; font-size: 14px;');
-        };
-
-        // Service Worker registration for offline support (if available)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(() => {});
-            });
-        }
-    </script>
+    window.addEventListener('DOMContentLoaded', () => {
+      updateProgressUI();
+      setupQuiz();
+    });
+  </script>
 </body>
 </html>
