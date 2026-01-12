@@ -935,7 +935,7 @@
             const moduleName = currentLang === 'en' ? `Module ${moduleNumber}` : `الوحدة ${moduleNumber}`;
             
             // Check if module page exists
-            if (moduleNumber === 1 || moduleNumber === 2) {
+            if (moduleNumber >= 1 && moduleNumber <= 3) {
                 window.location.href = `modules/module${moduleNumber}.html`;
             } else {
                 showToast(currentLang === 'en' ? `Opening ${moduleName}...` : `جاري فتح ${moduleName}...`);
