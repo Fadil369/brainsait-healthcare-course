@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Interoperability Solutions | BrainSait</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white min-h-screen">
+    <!-- Language Toggle Bar -->
+    <nav class="fixed top-4 right-4 z-50">
+        <button onclick="toggleLanguage()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full transition-all shadow-lg flex items-center gap-2">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-indicator">EN</span>
+        </button>
+    </nav>
+    
+    <div class="container mx-auto px-6 py-12">
+        <!-- Header -->
+        <div class="mb-12">
+            <a href="../index.html" class="text-cyan-400 hover:text-cyan-300 mb-4 inline-flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                <span data-en="Back to Course" data-ar="العودة إلى الدورة">Back to Course</span>
+            </a>
+            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 p-8 rounded-2xl mb-6">
+                <h1 class="text-5xl font-bold mb-4" data-en="Module 3: Breaking Down Barriers" data-ar="الوحدة 3: كسر الحواجز">
+                    Module 3: Breaking Down Barriers
+                </h1>
+                <p class="text-xl opacity-90" data-en="Healthcare Interoperability Solutions" data-ar="حلول التشغيل البيني للرعاية الصحية">
+                    Healthcare Interoperability Solutions
+                </p>
+            </div>
+            <div class="flex gap-4 text-sm flex-wrap">
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="far fa-clock mr-2"></i><span data-en="25 minutes" data-ar="25 دقيقة">25 minutes</span></span>
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-signal mr-2"></i><span data-en="Intermediate" data-ar="متوسط">Intermediate</span></span>
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-plug mr-2"></i><span data-en="APIs & Standards" data-ar="واجهات برمجية ومعايير">APIs & Standards</span></span>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-12">
+            <!-- Introduction -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-cyan-400" data-en="3.1 What is Interoperability?" data-ar="3.1 ما هو التشغيل البيني؟">
+                    3.1 What is Interoperability?
+                </h2>
+                
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-en="Healthcare interoperability is the ability of different healthcare information systems, devices, and applications to access, exchange, integrate, and cooperatively use data in a coordinated manner, within and across organizational boundaries, to provide timely and seamless portability of information for optimized patient care." 
+                   data-ar="التشغيل البيني للرعاية الصحية هو قدرة أنظمة وأجهزة وتطبيقات معلومات الرعاية الصحية المختلفة على الوصول إلى البيانات وتبادلها ودمجها واستخدامها بشكل تعاوني بطريقة منسقة، داخل وعبر الحدود التنظيمية، لتوفير إمكانية نقل المعلومات في الوقت المناسب وبسلاسة لتحسين رعاية المرضى.">
+                    Healthcare interoperability is the ability of different healthcare information systems, devices, and applications to access, exchange, integrate, and cooperatively use data in a coordinated manner, within and across organizational boundaries, to provide timely and seamless portability of information for optimized patient care.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-blue-900 to-blue-800 p-6 rounded-xl">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-bold mb-3" data-en="Foundational" data-ar="أساسي">Foundational</h3>
+                        <p class="text-gray-300 text-sm" data-en="Establishes basic data exchange between systems" data-ar="يؤسس تبادل البيانات الأساسي بين الأنظمة">Establishes basic data exchange between systems</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-900 to-purple-800 p-6 rounded-xl">
+                        <div class="text-4xl mb-4">🔄</div>
+                        <h3 class="text-xl font-bold mb-3" data-en="Structural" data-ar="هيكلي">Structural</h3>
+                        <p class="text-gray-300 text-sm" data-en="Defines format and syntax of data exchange" data-ar="يحدد تنسيق وبنية تبادل البيانات">Defines format and syntax of data exchange</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-cyan-900 to-cyan-800 p-6 rounded-xl">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold mb-3" data-en="Semantic" data-ar="دلالي">Semantic</h3>
+                        <p class="text-gray-300 text-sm" data-en="Ensures shared meaning across systems" data-ar="يضمن المعنى المشترك عبر الأنظمة">Ensures shared meaning across systems</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HL7 Standard -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-green-400" data-en="3.2 HL7: The Foundation" data-ar="3.2 HL7: الأساس">
+                    3.2 HL7: The Foundation
+                </h2>
+
+                <div class="bg-green-900 bg-opacity-30 border border-green-500 p-6 rounded-xl mb-6">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-hospital text-green-400 mr-3"></i>
+                        <span data-en="Health Level 7 (HL7)" data-ar="المستوى الصحي 7 (HL7)">Health Level 7 (HL7)</span>
+                    </h3>
+                    <p class="text-gray-300 mb-4" data-en="HL7 is a set of international standards for the transfer of clinical and administrative data between healthcare software applications used by various healthcare providers." 
+                       data-ar="HL7 هو مجموعة من المعايير الدولية لنقل البيانات السريرية والإدارية بين تطبيقات برمجيات الرعاية الصحية التي يستخدمها مقدمو الرعاية الصحية المختلفون.">
+                        HL7 is a set of international standards for the transfer of clinical and administrative data between healthcare software applications used by various healthcare providers.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-gray-700 bg-opacity-50 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4 text-blue-400" data-en="HL7 v2.x (Legacy)" data-ar="HL7 v2.x (قديم)">HL7 v2.x (Legacy)</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li data-en="✓ Most widely deployed standard globally" data-ar="✓ المعيار الأكثر انتشارًا عالميًا">✓ Most widely deployed standard globally</li>
+                            <li data-en="✓ Used for ADT (Admission, Discharge, Transfer)" data-ar="✓ يُستخدم للقبول والخروج والنقل">✓ Used for ADT (Admission, Discharge, Transfer)</li>
+                            <li data-en="✓ Lab results, orders, scheduling" data-ar="✓ نتائج المختبر والطلبات والجدولة">✓ Lab results, orders, scheduling</li>
+                            <li data-en="⚠ Text-based, pipe-delimited format" data-ar="⚠ تنسيق نصي مفصول بأنابيب">⚠ Text-based, pipe-delimited format</li>
+                            <li data-en="⚠ Limited flexibility and readability" data-ar="⚠ مرونة وقابلية قراءة محدودة">⚠ Limited flexibility and readability</li>
+                        </ul>
+                        <div class="mt-4 bg-gray-900 p-4 rounded font-mono text-sm overflow-x-auto">
+                            <code class="text-green-400">MSH|^~\&|LAB|Hospital|HIS|Hospital|20260112120000||ORU^R01|MSG001|P|2.5</code>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 bg-opacity-50 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4 text-purple-400" data-en="HL7 v3 (CDA - Clinical Document Architecture)" data-ar="HL7 v3 (CDA - بنية المستند السريري)">HL7 v3 (CDA - Clinical Document Architecture)</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li data-en="✓ XML-based structured documents" data-ar="✓ مستندات منظمة على أساس XML">✓ XML-based structured documents</li>
+                            <li data-en="✓ More semantic meaning" data-ar="✓ معنى دلالي أكثر">✓ More semantic meaning</li>
+                            <li data-en="⚠ Complex implementation" data-ar="⚠ تنفيذ معقد">⚠ Complex implementation</li>
+                            <li data-en="⚠ Lower adoption rate" data-ar="⚠ معدل اعتماد أقل">⚠ Lower adoption rate</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FHIR -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-orange-400" data-en="3.3 FHIR: The Modern Solution" data-ar="3.3 FHIR: الحل الحديث">
+                    3.3 FHIR: The Modern Solution
+                </h2>
+
+                <div class="bg-gradient-to-r from-orange-900 to-red-900 p-8 rounded-xl mb-6">
+                    <h3 class="text-3xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-fire text-orange-400 mr-3"></i>
+                        <span data-en="FHIR (Fast Healthcare Interoperability Resources)" data-ar="FHIR (موارد التشغيل البيني السريع للرعاية الصحية)">FHIR (Fast Healthcare Interoperability Resources)</span>
+                    </h3>
+                    <p class="text-gray-300 text-lg mb-4" data-en="FHIR is the next-generation standard designed to enable healthcare data exchange in the modern era. Built on web standards like REST, JSON, and OAuth, FHIR is revolutionizing healthcare interoperability." 
+                       data-ar="FHIR هو المعيار من الجيل التالي المصمم لتمكين تبادل البيانات الصحية في العصر الحديث. مبني على معايير الويب مثل REST و JSON و OAuth، يُحدث FHIR ثورة في التشغيل البيني للرعاية الصحية.">
+                        FHIR is the next-generation standard designed to enable healthcare data exchange in the modern era. Built on web standards like REST, JSON, and OAuth, FHIR is revolutionizing healthcare interoperability.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-800 bg-opacity-70 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2 text-cyan-400" data-en="🚀 Key Advantages" data-ar="🚀 المزايا الرئيسية">🚀 Key Advantages</h4>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li data-en="• RESTful API architecture" data-ar="• بنية RESTful API">• RESTful API architecture</li>
+                                <li data-en="• JSON/XML format support" data-ar="• دعم تنسيق JSON/XML">• JSON/XML format support</li>
+                                <li data-en="• Easy to implement" data-ar="• سهل التنفيذ">• Easy to implement</li>
+                                <li data-en="• Mobile-friendly" data-ar="• صديق للهاتف المحمول">• Mobile-friendly</li>
+                                <li data-en="• Modular resources" data-ar="• موارد معيارية">• Modular resources</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-70 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2 text-green-400" data-en="🇸🇦 Saudi Arabia Context" data-ar="🇸🇦 السياق السعودي">🇸🇦 Saudi Arabia Context</h4>
+                            <ul class="space-y-1 text-sm text-gray-300">
+                                <li data-en="• NPHIES uses FHIR R4" data-ar="• NPHIES يستخدم FHIR R4">• NPHIES uses FHIR R4</li>
+                                <li data-en="• Mandated for insurance claims" data-ar="• إلزامي لمطالبات التأمين">• Mandated for insurance claims</li>
+                                <li data-en="• Vision 2030 alignment" data-ar="• توافق مع رؤية 2030">• Vision 2030 alignment</li>
+                                <li data-en="• National health records" data-ar="• السجلات الصحية الوطنية">• National health records</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-700 bg-opacity-50 p-6 rounded-xl mb-6">
+                    <h4 class="text-xl font-bold mb-4" data-en="FHIR Resources (Building Blocks)" data-ar="موارد FHIR (اللبنات الأساسية)">FHIR Resources (Building Blocks)</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">👤</div>
+                            <h5 class="font-bold mb-1" data-en="Patient" data-ar="المريض">Patient</h5>
+                            <p class="text-xs text-gray-400" data-en="Demographics & identification" data-ar="المعلومات الديموغرافية والتعريف">Demographics & identification</p>
+                        </div>
+                        <div class="bg-purple-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">🩺</div>
+                            <h5 class="font-bold mb-1" data-en="Observation" data-ar="الملاحظة">Observation</h5>
+                            <p class="text-xs text-gray-400" data-en="Vital signs, lab results" data-ar="العلامات الحيوية، نتائج المختبر">Vital signs, lab results</p>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">💊</div>
+                            <h5 class="font-bold mb-1" data-en="Medication" data-ar="الدواء">Medication</h5>
+                            <p class="text-xs text-gray-400" data-en="Prescriptions & dispensing" data-ar="الوصفات الطبية والصرف">Prescriptions & dispensing</p>
+                        </div>
+                        <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">🏥</div>
+                            <h5 class="font-bold mb-1" data-en="Encounter" data-ar="المقابلة">Encounter</h5>
+                            <p class="text-xs text-gray-400" data-en="Visits & admissions" data-ar="الزيارات والقبول">Visits & admissions</p>
+                        </div>
+                        <div class="bg-yellow-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">⚕️</div>
+                            <h5 class="font-bold mb-1" data-en="Procedure" data-ar="الإجراء">Procedure</h5>
+                            <p class="text-xs text-gray-400" data-en="Medical procedures" data-ar="الإجراءات الطبية">Medical procedures</p>
+                        </div>
+                        <div class="bg-cyan-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="text-3xl mb-2">🔬</div>
+                            <h5 class="font-bold mb-1" data-en="DiagnosticReport" data-ar="التقرير التشخيصي">DiagnosticReport</h5>
+                            <p class="text-xs text-gray-400" data-en="Test results & imaging" data-ar="نتائج الفحوصات والتصوير">Test results & imaging</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 p-6 rounded-xl">
+                    <h4 class="text-lg font-bold mb-4 text-cyan-400" data-en="Example: FHIR Patient Resource (JSON)" data-ar="مثال: مورد مريض FHIR (JSON)">Example: FHIR Patient Resource (JSON)</h4>
+                    <pre class="text-sm overflow-x-auto"><code class="text-green-400">{
+  "resourceType": "Patient",
+  "id": "saudi-patient-001",
+  "identifier": [{
+    "system": "urn:oid:2.16.840.1.113883.3.56789",
+    "value": "1234567890"
+  }],
+  "name": [{
+    "family": "Al-Qahtani",
+    "given": ["Ahmed", "Mohammed"]
+  }],
+  "gender": "male",
+  "birthDate": "1985-06-15",
+  "address": [{
+    "city": "Riyadh",
+    "country": "SA"
+  }]
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- RESTful APIs -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-purple-400" data-en="3.4 RESTful APIs for Healthcare" data-ar="3.4 واجهات RESTful API للرعاية الصحية">
+                    3.4 RESTful APIs for Healthcare
+                </h2>
+
+                <p class="text-gray-300 mb-6" data-en="FHIR leverages RESTful architecture, making it easy to integrate with modern applications and mobile devices." 
+                   data-ar="يستفيد FHIR من بنية RESTful، مما يسهل التكامل مع التطبيقات الحديثة والأجهزة المحمولة.">
+                    FHIR leverages RESTful architecture, making it easy to integrate with modern applications and mobile devices.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-900 bg-opacity-30 border border-blue-500 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4 text-blue-400" data-en="HTTP Methods" data-ar="طرق HTTP">HTTP Methods</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-green-600 rounded font-mono text-sm">GET</span>
+                                <span class="text-gray-300 text-sm" data-en="Read/retrieve resources" data-ar="قراءة/استرجاع الموارد">Read/retrieve resources</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-blue-600 rounded font-mono text-sm">POST</span>
+                                <span class="text-gray-300 text-sm" data-en="Create new resources" data-ar="إنشاء موارد جديدة">Create new resources</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-yellow-600 rounded font-mono text-sm">PUT</span>
+                                <span class="text-gray-300 text-sm" data-en="Update resources" data-ar="تحديث الموارد">Update resources</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-red-600 rounded font-mono text-sm">DELETE</span>
+                                <span class="text-gray-300 text-sm" data-en="Remove resources" data-ar="إزالة الموارد">Remove resources</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-900 bg-opacity-30 border border-purple-500 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4 text-purple-400" data-en="Common Operations" data-ar="العمليات الشائعة">Common Operations</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-gray-800 p-3 rounded">
+                                <code class="text-green-400">GET /Patient/123</code>
+                                <p class="text-gray-400 text-xs mt-1" data-en="Get patient by ID" data-ar="الحصول على مريض بالمعرف">Get patient by ID</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded">
+                                <code class="text-green-400">GET /Patient?name=Ahmed</code>
+                                <p class="text-gray-400 text-xs mt-1" data-en="Search patients" data-ar="البحث عن المرضى">Search patients</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded">
+                                <code class="text-blue-400">POST /Observation</code>
+                                <p class="text-gray-400 text-xs mt-1" data-en="Create observation" data-ar="إنشاء ملاحظة">Create observation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Saudi NPHIES -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-green-400" data-en="3.5 Saudi NPHIES Platform" data-ar="3.5 منصة نفيس السعودية">
+                    3.5 Saudi NPHIES Platform
+                </h2>
+
+                <div class="bg-gradient-to-r from-green-900 to-emerald-900 p-6 rounded-xl mb-6">
+                    <div class="flex items-start gap-4">
+                        <div class="text-6xl">🇸🇦</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3" data-en="NPHIES (National Platform for Health Insurance Exchange Services)" data-ar="نفيس (المنصة الوطنية لخدمات التأمين الصحي)">NPHIES (National Platform for Health Insurance Exchange Services)</h3>
+                            <p class="text-gray-300 mb-4" data-en="Launched by the Council of Cooperative Health Insurance (CCHI), NPHIES is Saudi Arabia's national platform that standardizes and automates healthcare insurance transactions using FHIR R4 standard." 
+                               data-ar="أطلقها مجلس الضمان الصحي التعاوني، نفيس هي المنصة الوطنية للمملكة العربية السعودية التي تعمل على توحيد وأتمتة معاملات التأمين الصحي باستخدام معيار FHIR R4.">
+                                Launched by the Council of Cooperative Health Insurance (CCHI), NPHIES is Saudi Arabia's national platform that standardizes and automates healthcare insurance transactions using FHIR R4 standard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-blue-900 bg-opacity-30 border border-blue-500 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4" data-en="✅ Key Benefits" data-ar="✅ الفوائد الرئيسية">✅ Key Benefits</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li data-en="• Real-time pre-authorization" data-ar="• التفويض المسبق في الوقت الفعلي">• Real-time pre-authorization</li>
+                            <li data-en="• Automated claims processing" data-ar="• معالجة المطالبات الآلية">• Automated claims processing</li>
+                            <li data-en="• Reduced administrative burden" data-ar="• تقليل العبء الإداري">• Reduced administrative burden</li>
+                            <li data-en="• Faster reimbursement (15 days)" data-ar="• سداد أسرع (15 يومًا)">• Faster reimbursement (15 days)</li>
+                            <li data-en="• Fraud detection and prevention" data-ar="• كشف ومنع الاحتيال">• Fraud detection and prevention</li>
+                            <li data-en="• Estimated 30B SAR annual savings" data-ar="• وفورات سنوية تقدر بـ 30 مليار ريال">• Estimated 30B SAR annual savings</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-900 bg-opacity-30 border border-purple-500 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4" data-en="🏥 Coverage" data-ar="🏥 التغطية">🏥 Coverage</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li data-en="• 500+ hospitals connected" data-ar="• أكثر من 500 مستشفى متصل">• 500+ hospitals connected</li>
+                            <li data-en="• 2,400+ healthcare facilities" data-ar="• أكثر من 2,400 مرفق صحي">• 2,400+ healthcare facilities</li>
+                            <li data-en="• 27+ insurance companies" data-ar="• أكثر من 27 شركة تأمين">• 27+ insurance companies</li>
+                            <li data-en="• 40+ million transactions annually" data-ar="• أكثر من 40 مليون معاملة سنويًا">• 40+ million transactions annually</li>
+                            <li data-en="• Covers 100% of insured population" data-ar="• يغطي 100٪ من السكان المؤمن عليهم">• Covers 100% of insured population</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-900 bg-opacity-30 border border-yellow-500 p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 flex items-center">
+                        <i class="fas fa-rocket text-yellow-400 mr-3"></i>
+                        <span data-en="Impact on Saudi Healthcare" data-ar="التأثير على الرعاية الصحية السعودية">Impact on Saudi Healthcare</span>
+                    </h4>
+                    <p class="text-gray-300" data-en="NPHIES represents a major step toward Vision 2030's digital transformation goals, positioning Saudi Arabia as a leader in healthcare technology adoption in the Middle East region." 
+                       data-ar="تمثل نفيس خطوة كبيرة نحو أهداف التحول الرقمي لرؤية 2030، مما يضع المملكة العربية السعودية كقائد في اعتماد تكنولوجيا الرعاية الصحية في منطقة الشرق الأوسط.">
+                        NPHIES represents a major step toward Vision 2030's digital transformation goals, positioning Saudi Arabia as a leader in healthcare technology adoption in the Middle East region.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Knowledge Check -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6" data-en="💡 Knowledge Check" data-ar="💡 اختبار المعرفة">💡 Knowledge Check</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4" data-en="Which FHIR version does Saudi NPHIES use?" data-ar="أي إصدار من FHIR تستخدمه نفيس السعودية؟">
+                            Which FHIR version does Saudi NPHIES use?
+                        </h3>
+                        <div class="space-y-3">
+                            <button class="w-full text-left p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition">
+                                <span data-en="A) FHIR R3" data-ar="أ) FHIR R3">A) FHIR R3</span>
+                            </button>
+                            <button class="w-full text-left p-4 bg-green-700 border-2 border-green-400 rounded-lg">
+                                <span data-en="B) FHIR R4 ✓" data-ar="ب) FHIR R4 ✓">B) FHIR R4 ✓</span>
+                            </button>
+                            <button class="w-full text-left p-4 bg-gray-700 hover:bg-gray-600 rounded-lg transition">
+                                <span data-en="C) FHIR R5" data-ar="ج) FHIR R5">C) FHIR R5</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="flex justify-between items-center">
+                <a href="module2.html" class="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full transition">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span data-en="Previous Module" data-ar="الوحدة السابقة">Previous Module</span>
+                </a>
+                <a href="module4.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full hover:opacity-90 transition">
+                    <span data-en="Next: Cloud Solutions" data-ar="التالي: الحلول السحابية">Next: Cloud Solutions</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            
+            if (currentLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.getElementById('lang-indicator').textContent = 'EN';
+            }
+            
+            updateContent();
+            localStorage.setItem('courseLang', currentLang);
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(el => {
+                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        window.onload = function() {
+            const savedLang = localStorage.getItem('courseLang');
+            if (savedLang && savedLang === 'ar') {
+                currentLang = 'ar';
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            }
+            updateContent();
+        };
+    </script>
+</body>
+</html>
