@@ -54,8 +54,13 @@ Your interactive bilingual online course is ready for deployment to GitHub Pages
 
 ### Main Files
 1. **index.html** - Interactive bilingual homepage ⭐
-2. **module1.html** - Sample module template
-3. **index-old.html** - Original podcast page (backup)
+2. **modules/module1.html** - Module 1: Introduction
+3. **modules/module2.html** - Module 2: Data Silos
+4. **modules/module3.html** - Module 3: Interoperability
+5. **modules/module4.html** - Module 4: Cloud Solutions
+6. **modules/module5.html** - Module 5: TEFCA & National Frameworks
+7. **modules/module6.html** - Module 6: Future Technologies
+8. **index-old.html** - Original podcast page (backup)
 
 ### Assets
 4. **assets/logo.svg** - BrainSait logo
@@ -235,7 +240,7 @@ https://fadil369.github.io/brainsait-healthcare-course/
 
 ### Phase 2 (Optional)
 - [ ] Add actual audio files
-- [ ] Create remaining module pages
+- [x] Create remaining module pages (Completed: Modules 1-6 live)
 - [ ] Add more quiz questions
 - [ ] Include video content
 - [ ] Create downloadable PDFs
