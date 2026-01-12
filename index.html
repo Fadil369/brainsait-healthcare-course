@@ -812,6 +812,7 @@
             }
             
             updateContent();
+            localStorage.setItem('courseLang', currentLang);
         }
         
         function updateContent() {
@@ -974,6 +975,15 @@
             setTimeout(() => {
                 document.getElementById('preloader').classList.add('hidden');
             }, 800);
+
+            // Load saved language preference
+            const savedLang = localStorage.getItem('courseLang');
+            if (savedLang && savedLang === 'ar') {
+                currentLang = 'ar';
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            }
 
             updateOverallProgress();
             updateContent();

@@ -9,6 +9,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white min-h-screen">
+    <!-- Language Toggle Bar -->
+    <nav class="fixed top-4 right-4 z-50">
+        <button onclick="toggleLanguage()" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full transition-all shadow-lg flex items-center gap-2">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-indicator">EN</span>
+        </button>
+    </nav>
+    
     <div class="container mx-auto px-6 py-12">
         <!-- Header -->
         <div class="mb-12">
@@ -348,15 +356,47 @@
     <script>
         let currentLang = 'en';
         
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            
+            if (currentLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.getElementById('lang-indicator').textContent = 'EN';
+            }
+            
+            updateContent();
+            localStorage.setItem('courseLang', currentLang);
+        }
+        
         function updateContent() {
             const elements = document.querySelectorAll('[data-en][data-ar]');
             elements.forEach(el => {
                 const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-                el.textContent = text;
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
             });
         }
 
-        window.onload = () => updateContent();
+        window.onload = function() {
+            // Load saved language preference
+            const savedLang = localStorage.getItem('courseLang');
+            if (savedLang && savedLang === 'ar') {
+                currentLang = 'ar';
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            }
+            updateContent();
+        };
     </script>
 </body>
 </html>
