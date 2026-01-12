@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Future Tech | BrainSait</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-indigo-900 to-black text-white min-h-screen">
+    <nav class="fixed top-4 right-4 z-50">
+        <button onclick="toggleLanguage()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full transition-all shadow-lg flex items-center gap-2">
+            <i class="fas fa-language text-xl"></i>
+            <span id="lang-indicator">EN</span>
+        </button>
+    </nav>
+    
+    <div class="container mx-auto px-6 py-12">
+        <div class="mb-12">
+            <a href="../index.html" class="text-indigo-400 hover:text-indigo-300 mb-4 inline-flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                <span data-en="Back to Course" data-ar="العودة إلى الدورة">Back to Course</span>
+            </a>
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 rounded-2xl mb-6">
+                <h1 class="text-5xl font-bold mb-4" data-en="Module 6: Future Technologies" data-ar="الوحدة 6: التقنيات المستقبلية">
+                    Module 6: Future Technologies
+                </h1>
+                <p class="text-xl opacity-90" data-en="AI, Blockchain, and the Future of Saudi Healthcare" data-ar="الذكاء الاصطناعي، البلوك تشين، ومستقبل الرعاية الصحية السعودية">
+                    AI, Blockchain, and the Future of Saudi Healthcare
+                </p>
+            </div>
+            <div class="flex gap-4 text-sm flex-wrap">
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="far fa-clock mr-2"></i><span data-en="30 minutes" data-ar="30 دقيقة">30 minutes</span></span>
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-brain mr-2"></i><span data-en="Artificial Intelligence" data-ar="الذكاء الاصطناعي">Artificial Intelligence</span></span>
+                <span class="bg-gray-800 px-4 py-2 rounded-full"><i class="fas fa-link mr-2"></i><span data-en="Blockchain" data-ar="سلسلة الكتل">Blockchain</span></span>
+            </div>
+        </div>
+
+        <div class="space-y-12">
+            <!-- AI in Healthcare -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-pink-400" data-en="6.1 AI & Predictive Analytics" data-ar="6.1 الذكاء الاصطناعي والتحليلات التنبؤية">
+                    6.1 AI & Predictive Analytics
+                </h2>
+                
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed" data-en="Artificial Intelligence is transforming healthcare from reactive to proactive. By analyzing vast amounts of data (Genomics, EHR, Wearables), AI can predict disease outbreaks and personalize treatment plans." 
+                   data-ar="الذكاء الاصطناعي يحول الرعاية الصحية من تفاعلية إلى استباقية. من خلال تحليل كميات هائلة من البيانات (الجينوم، السجلات الصحية الإلكترونية، الأجهزة القابلة للارتداء)، يمكن للذكاء الاصطناعي التنبؤ بتفشي الأمراض وتخصيص خطط العلاج.">
+                    Artificial Intelligence is transforming healthcare from reactive to proactive. By analyzing vast amounts of data (Genomics, EHR, Wearables), AI can predict disease outbreaks and personalize treatment plans.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition">
+                        <i class="fas fa-x-ray text-4xl text-pink-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-en="Radiology AI" data-ar="ذكاء اصطناعي للأشعة">Radiology AI</h3>
+                        <p class="text-gray-400" data-en="Automating the detection of anomalies in X-rays and MRIs with higher accuracy than humans." data-ar="أتمتة اكتشاف الشذوذ في الأشعة السينية والرنين المغناطيسي بدقة أعلى من البشر.">Automating the detection of anomalies in X-rays and MRIs with higher accuracy than humans.</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition">
+                        <i class="fas fa-user-md text-4xl text-pink-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-en="Clinical Decision Support" data-ar="دعم القرار السريري">Clinical Decision Support</h3>
+                        <p class="text-gray-400" data-en="Alerting doctors to potential drug interactions and suggesting evidence-based treatments." data-ar="تنبيه الأطباء للتفاعلات الدوائية المحتملة واقتراح علاجات قائمة على الأدلة.">Alerting doctors to potential drug interactions and suggesting evidence-based treatments.</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition">
+                        <i class="fas fa-chart-line text-4xl text-pink-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2" data-en="Predictive Analytics" data-ar="التحليلات التنبؤية">Predictive Analytics</h3>
+                        <p class="text-gray-400" data-en="Forecasting patient admission rates to optimize hospital staffing and resource allocation." data-ar="التنبؤ بمعدلات دخول المرضى لتحسين توظيف المستشفيات وتخصيص الموارد.">Forecasting patient admission rates to optimize hospital staffing and resource allocation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blockchain -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-indigo-400" data-en="6.2 Blockchain for Data Integrity" data-ar="6.2 البلوك تشين لسلامة البيانات">
+                    6.2 Blockchain for Data Integrity
+                </h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-2/3">
+                        <p class="text-gray-300 mb-6" data-en="Blockchain offers a decentralized, immutable ledger for health data. This is crucial for managing patient consent, securing supply chains (tracking medicine authenticity), and ensuring that medical records cannot be tampered with." 
+                           data-ar="يقدم البلوك تشين دفتر أستاذ لامركزي وغير قابل للتغيير للبيانات الصحية. هذا أمر بالغ الأهمية لإدارة موافقة المريض، وتأمين سلاسل التوريد (تتبع صحة الدواء)، وضمان عدم التلاعب بالسجلات الطبية.">
+                            Blockchain offers a decentralized, immutable ledger for health data. This is crucial for managing patient consent, securing supply chains (tracking medicine authenticity), and ensuring that medical records cannot be tampered with.
+                        </p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-lock text-indigo-500 mr-3"></i><span data-en="Patient Consent Management (Smart Contracts)" data-ar="إدارة موافقة المريض (العقود الذكية)">Patient Consent Management (Smart Contracts)</span></li>
+                            <li class="flex items-center"><i class="fas fa-pills text-indigo-500 mr-3"></i><span data-en="Drug Supply Chain Integrity" data-ar="نزاهة سلسلة توريد الأدوية">Drug Supply Chain Integrity</span></li>
+                            <li class="flex items-center"><i class="fas fa-id-card text-indigo-500 mr-3"></i><span data-en="Self-Sovereign Identity (SSI)" data-ar="الهوية الذاتية السيادة (SSI)">Self-Sovereign Identity (SSI)</span></li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/3 text-center">
+                        <i class="fas fa-link text-9xl text-indigo-900 opacity-50 animate-pulse"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Saudi Vision 2030 -->
+            <section class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-8 rounded-2xl border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-green-400" data-en="6.3 Saudi Vision 2030 Alignment" data-ar="6.3 مواءمة رؤية السعودية 2030">
+                    6.3 Saudi Vision 2030 Alignment
+                </h2>
+                
+                <div class="bg-gradient-to-r from-green-900 to-green-800 p-8 rounded-xl relative overflow-hidden">
+                    <i class="fas fa-flag text-9xl absolute right-[-20px] bottom-[-20px] text-white opacity-10"></i>
+                    <h3 class="text-2xl font-bold mb-4 z-10 relative" data-en="Healthcare Sector Transformation Program" data-ar="برنامج تحول القطاع الصحي">
+                        Healthcare Sector Transformation Program
+                    </h3>
+                    <p class="text-gray-200 mb-4 z-10 relative" data-en="A key pillar of Vision 2030, aiming to restructure the health sector to be comprehensive regarding coverage, effective, and integrated based on the principle of value-based care." 
+                       data-ar="ركيزة أساسية في رؤية 2030، تهدف إلى إعادة هيكلة القطاع الصحي ليكون شاملاً من حيث التغطية، وفعالاً، ومتكاملاً بناءً على مبدأ الرعاية القائمة على القيمة.">
+                        A key pillar of Vision 2030, aiming to restructure the health sector to be comprehensive regarding coverage, effective, and integrated based on the principle of value-based care.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 z-10 relative">
+                        <div class="bg-black bg-opacity-30 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-400 mb-2">Goal 1</h4>
+                            <p class="text-sm" data-en="Facilitate access to healthcare services (e-Health)" data-ar="تسهيل الوصول إلى خدمات الرعاية الصحية (الصحة الإلكترونية)">Facilitate access to healthcare services (e-Health)</p>
+                        </div>
+                        <div class="bg-black bg-opacity-30 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-400 mb-2">Goal 2</h4>
+                            <p class="text-sm" data-en="Digitize health records across the Kingdom (Unified File)" data-ar="رقمنة السجلات الصحية في جميع أنحاء المملكة (الملف الموحد)">Digitize health records across the Kingdom (Unified File)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Conclusion -->
+            <section class="text-center py-12">
+                <h2 class="text-4xl font-bold mb-6" data-en="Course Completed! 🎉" data-ar="اكتملت الدورة! 🎉">Course Completed! 🎉</h2>
+                <p class="text-xl text-gray-400 mb-8" data-en="You have explored the landscape of healthcare data, from local silos to national interoperability and future innovations." 
+                   data-ar="لقد استكشفت مشهد بيانات الرعاية الصحية، من الصوامع المحلية إلى التشغيل البيني الوطني والابتكارات المستقبلية.">
+                    You have explored the landscape of healthcare data, from local silos to national interoperability and future innovations.
+                </p>
+                <a href="../index.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full text-xl font-bold hover:shadow-lg hover:shadow-indigo-500/50 transition transform hover:-translate-y-1">
+                    <span data-en="Return to Dashboard" data-ar="العودة إلى لوحة التحكم">Return to Dashboard</span>
+                </a>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            
+            if (currentLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                document.getElementById('lang-indicator').textContent = 'AR';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.getElementById('lang-indicator').textContent = 'EN';
+            }
+            
+            updateContent();
+            localStorage.setItem('courseLang', currentLang);
+        }
+        
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(el => {
+                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        window.onload = function() {
+            const savedLang = localStorage.getItem('courseLang');
+            if (savedLang && savedLang === 'ar') {
+                toggleLanguage();
+            }
+        };
+    </script>
+</body>
+</html>
