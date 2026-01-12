@@ -8,6 +8,16 @@
     <meta name="author" content="BrainSait">
     <title>BrainSait - Healthcare Data Insights Interactive Course</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236C63FF'/%3E%3Cstop offset='100%25' style='stop-color:%2300D4FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='40' text-anchor='middle' fill='white'%3E🧠%3C/text%3E%3C/svg%3E">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="BrainSait - Healthcare Data Insights">
+    <meta property="og:description" content="Interactive bilingual online course on healthcare data silos and interoperability">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://fadil369.github.io/brainsait-healthcare-course/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,17 +31,9 @@
     
     <style>
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #6C63FF 0%, #4834DF 100%);
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.04); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #8B7BFF 0%, #4834DF 100%); border-radius: 10px; }
 
         /* Root Variables - BrainSait Brand Colors */
         :root {
@@ -47,7 +49,9 @@
         /* Typography */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0F0E17 0%, #1a1a2e 50%, #2D2640 100%);
+            background: radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.18), transparent 32%),
+                        radial-gradient(circle at 80% 0%, rgba(0, 212, 255, 0.18), transparent 28%),
+                        linear-gradient(135deg, #0F0E17 0%, #1a1a2e 50%, #141022 100%);
             background-attachment: fixed;
             color: var(--brainsait-light);
             overflow-x: hidden;
@@ -76,12 +80,39 @@
         }
 
         .glassmorphism {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(108, 99, 255, 0.2);
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 60px 0 rgba(13, 17, 38, 0.65);
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glassmorphism::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 15% 20%, rgba(108, 99, 255, 0.18), transparent 35%),
+                        radial-gradient(circle at 80% 30%, rgba(0, 212, 255, 0.16), transparent 32%);
+            pointer-events: none;
+        }
+
+        .premium-border {
+            position: relative;
+        }
+        .premium-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(120deg, rgba(108, 99, 255, 0.8), rgba(0, 212, 255, 0.8));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
         .card-hover {
@@ -90,8 +121,8 @@
         }
 
         .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px 0 rgba(108, 99, 255, 0.4);
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 24px 70px 0 rgba(0, 0, 0, 0.35);
         }
 
         .floating {
@@ -142,10 +173,11 @@
         }
 
         .progress-bar {
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .progress-fill {
@@ -158,15 +190,215 @@
             display: none;
         }
 
-        audio {
+        audio { width: 100%; border-radius: 12px; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            background: linear-gradient(120deg, #7C6CFF, #00D4FF);
+            color: #0D0B1F;
+            font-weight: 700;
+            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 50px rgba(108, 99, 255, 0.45); }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            transition: all 0.25s ease;
+        }
+
+        .btn-ghost:hover { border-color: rgba(0, 212, 255, 0.6); color: #00D4FF; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.8rem;
+        }
+
+        .stats-card {
+            border-radius: 16px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-dot {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            filter: blur(120px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        /* Missing gradient background class */
+        .brainsait-gradient-bg {
+            background: linear-gradient(135deg, var(--brainsait-primary) 0%, var(--brainsait-secondary) 100%);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--brainsait-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(108, 99, 255, 0.2);
+            border-top-color: var(--brainsait-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* RTL specific fixes */
+        [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-x-reverse: 1;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+        }
+
+        [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+        [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+
+        /* Focus states for accessibility */
+        button:focus-visible, a:focus-visible {
+            outline: 2px solid var(--brainsait-accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--brainsait-primary);
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Animated counter */
+        .counter {
+            display: inline-block;
+        }
+
+        /* Module card shimmer effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
             border-radius: 12px;
+            background: rgba(0, 227, 150, 0.9);
+            color: #0D0B1F;
+            font-weight: 600;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        [dir="rtl"] .toast {
+            right: auto;
+            left: 2rem;
         }
     </style>
 </head>
 <body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link" data-en="Skip to content" data-ar="تخطي إلى المحتوى">Skip to content</a>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Ambient Background Decorations -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+        <div class="glow-dot bg-purple-600/40 -left-24 top-10"></div>
+        <div class="glow-dot bg-cyan-400/40 right-0 -top-10"></div>
+        <div class="glow-dot bg-purple-800/30 left-1/3 bottom-[-8rem]"></div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="glassmorphism fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
+    <nav class="glassmorphism premium-border fixed top-0 left-0 right-0 z-50 mx-4 mt-4">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-full brainsait-gradient-bg flex items-center justify-center">
@@ -193,7 +425,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="container mx-auto px-6 pt-32 pb-20 text-center fade-in">
+    <header class="container mx-auto px-6 pt-32 pb-20 text-center fade-in relative">
         <div class="floating mb-8">
             <div class="w-32 h-32 mx-auto rounded-full brainsait-gradient-bg flex items-center justify-center shadow-2xl">
                 <i class="fas fa-graduation-cap text-white text-6xl"></i>
@@ -209,6 +441,17 @@
            data-ar="دورة تفاعلية عبر الإنترنت: فهم صوامع البيانات الصحية">
             Interactive Online Course: Unpacking Healthcare Data Silos
         </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+            <button class="btn-primary" onclick="openModule(1)">
+                <i class="fas fa-play-circle"></i>
+                <span data-en="Start Learning" data-ar="ابدأ التعلم">Start Learning</span>
+            </button>
+            <button class="btn-ghost" onclick="downloadResources()">
+                <i class="fas fa-cloud-download-alt"></i>
+                <span data-en="Download Syllabus" data-ar="تحميل المنهج">Download Syllabus</span>
+            </button>
+        </div>
         
         <div class="flex flex-wrap justify-center gap-4 mb-8">
             <div class="glassmorphism px-6 py-3 rounded-full">
@@ -237,7 +480,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
+    <main id="main-content" class="container mx-auto px-6 py-12">
         <!-- Course Modules Grid -->
         <section class="mb-20">
             <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-en="Course Modules" data-ar="وحدات الدورة">
@@ -246,11 +489,15 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Module 1 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(1)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(1)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-play text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 1: Introduction" data-ar="الوحدة 1: مقدمة">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-star text-purple-300"></i>Intro</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>15m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 1: Introduction" data-ar="الوحدة 1: مقدمة">
                         Module 1: Introduction
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -258,21 +505,25 @@
                        data-ar="فهم مشهد البيانات الصحية">
                         Understanding Healthcare Data Landscape
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="1" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="15 minutes" data-ar="15 دقيقة">15 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-level-up-alt text-purple-300"></i>
+                        <span data-en="Beginner" data-ar="مبتدئ">Beginner</span>
                     </p>
                 </div>
 
                 <!-- Module 2 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(2)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(2)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-database text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 2: Data Silos" data-ar="الوحدة 2: صوامع البيانات">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-layer-group text-purple-300"></i>Core</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>20m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 2: Data Silos" data-ar="الوحدة 2: صوامع البيانات">
                         Module 2: Data Silos
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -280,21 +531,25 @@
                        data-ar="المشكلة وتأثيرها">
                         The Problem and Its Impact
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="2" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="20 minutes" data-ar="20 دقيقة">20 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-signal text-purple-300"></i>
+                        <span data-en="Core Concepts" data-ar="مفاهيم أساسية">Core Concepts</span>
                     </p>
                 </div>
 
                 <!-- Module 3 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(3)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(3)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-link text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 3: Interoperability" data-ar="الوحدة 3: التشغيل البيني">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-plug text-purple-300"></i>API</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>25m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 3: Interoperability" data-ar="الوحدة 3: التشغيل البيني">
                         Module 3: Interoperability
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -302,21 +557,25 @@
                        data-ar="كسر الحواجز">
                         Breaking Down Barriers
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="3" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="25 minutes" data-ar="25 دقيقة">25 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <span data-en="Intermediate" data-ar="متوسط">Intermediate</span>
                     </p>
                 </div>
 
                 <!-- Module 4 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(4)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(4)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-cloud text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 4: Cloud Solutions" data-ar="الوحدة 4: الحلول السحابية">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-cloud text-cyan-200"></i>Cloud</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>30m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 4: Cloud Solutions" data-ar="الوحدة 4: الحلول السحابية">
                         Module 4: Cloud Solutions
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -324,21 +583,25 @@
                        data-ar="FHIR والخدمات السحابية">
                         FHIR and Cloud Services
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="4" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="30 minutes" data-ar="30 دقيقة">30 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-cloud-upload-alt text-cyan-200"></i>
+                        <span data-en="Hands-on" data-ar="تطبيقي">Hands-on</span>
                     </p>
                 </div>
 
                 <!-- Module 5 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(5)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(5)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-network-wired text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 5: TEFCA Framework" data-ar="الوحدة 5: إطار TEFCA">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-shield-alt text-purple-200"></i>Policy</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>20m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 5: TEFCA Framework" data-ar="الوحدة 5: إطار TEFCA">
                         Module 5: TEFCA Framework
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -346,21 +609,25 @@
                        data-ar="التشغيل البيني الوطني">
                         National Interoperability
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="5" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="20 minutes" data-ar="20 دقيقة">20 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-globe text-cyan-200"></i>
+                        <span data-en="Standards" data-ar="المعايير">Standards</span>
                     </p>
                 </div>
 
                 <!-- Module 6 -->
-                <div class="glassmorphism p-6 card-hover" onclick="openModule(6)">
-                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto">
+                <div class="glassmorphism premium-border p-6 card-hover" onclick="openModule(6)">
+                    <div class="w-16 h-16 rounded-full brainsait-gradient-bg flex items-center justify-center mb-4 mx-auto shadow-lg">
                         <i class="fas fa-rocket text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-center mb-3" data-en="Module 6: Future Outlook" data-ar="الوحدة 6: التوقعات المستقبلية">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="badge"><i class="fas fa-forward text-purple-200"></i>Vision</span>
+                        <span class="badge"><i class="fas fa-clock text-cyan-300"></i>15m</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2" data-en="Module 6: Future Outlook" data-ar="الوحدة 6: التوقعات المستقبلية">
                         Module 6: Future Outlook
                     </h3>
                     <p class="text-gray-300 text-center mb-4" 
@@ -368,19 +635,19 @@
                        data-ar="الطريق إلى الأمام">
                         The Path Forward
                     </p>
-                    <div class="progress-bar mb-2">
+                    <div class="progress-bar mb-3">
                         <div class="progress-fill module-progress" data-module="6" style="width: 0%"></div>
                     </div>
-                    <p class="text-xs text-center text-gray-400">
-                        <i class="fas fa-clock mr-1"></i>
-                        <span data-en="15 minutes" data-ar="15 دقيقة">15 minutes</span>
+                    <p class="text-xs text-center text-gray-400 flex items-center justify-center gap-2">
+                        <i class="fas fa-lightbulb text-yellow-300"></i>
+                        <span data-en="Visionary" data-ar="رؤيوي">Visionary</span>
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Featured Podcast Section -->
-        <section class="glassmorphism p-8 md:p-12 mb-20 fade-in">
+        <section class="glassmorphism premium-border p-8 md:p-12 mb-20 fade-in">
             <h2 class="text-3xl font-bold text-center mb-8 gradient-text" data-en="Featured Podcast Episode" data-ar="حلقة البودكاست المميزة">
                 Featured Podcast Episode
             </h2>
@@ -405,7 +672,7 @@
                         Listen to our comprehensive podcast exploring healthcare data silos, their impact, and the latest technological solutions including FHIR and TEFCA.
                     </p>
                     
-                    <div class="glassmorphism p-4 rounded-xl mb-4">
+                                        <div class="glassmorphism premium-border p-4 rounded-xl mb-4">
                         <audio controls id="main-audio">
                             <source src="health-data-podcast.mp3" type="audio/mpeg">
                             <span data-en="Your browser does not support the audio element." 
@@ -435,23 +702,23 @@
                 Test Your Knowledge
             </h2>
             
-            <div class="max-w-3xl mx-auto glassmorphism p-8">
+            <div class="max-w-3xl mx-auto glassmorphism premium-border p-8">
                 <div id="quiz-content">
                     <h3 class="text-xl font-bold mb-6" data-en="Question 1: What is the estimated annual cost of healthcare data silos globally?" data-ar="السؤال 1: ما هي التكلفة السنوية المقدرة لصوامع البيانات الصحية عالميًا؟">
                         Question 1: What is the estimated annual cost of healthcare data silos globally?
                     </h3>
                     
                     <div class="space-y-4">
-                        <div class="quiz-option glassmorphism p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
+                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
                             <span data-en="A) $1.5 trillion" data-ar="أ) 1.5 تريليون دولار">A) $1.5 trillion</span>
                         </div>
-                        <div class="quiz-option glassmorphism p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, true)">
+                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, true)">
                             <span data-en="B) $3.1 trillion" data-ar="ب) 3.1 تريليون دولار">B) $3.1 trillion</span>
                         </div>
-                        <div class="quiz-option glassmorphism p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
+                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
                             <span data-en="C) $5.2 trillion" data-ar="ج) 5.2 تريليون دولار">C) $5.2 trillion</span>
                         </div>
-                        <div class="quiz-option glassmorphism p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
+                        <div class="quiz-option glassmorphism premium-border p-4 rounded-lg border-2 border-transparent" onclick="checkAnswer(this, false)">
                             <span data-en="D) $2.8 trillion" data-ar="د) 2.8 تريليون دولار">D) $2.8 trillion</span>
                         </div>
                     </div>
@@ -468,19 +735,19 @@
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glassmorphism p-6 text-center card-hover">
+                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
                     <div class="text-5xl font-bold gradient-text mb-2">$3.1T</div>
                     <p class="text-gray-300" data-en="Annual Cost" data-ar="التكلفة السنوية">Annual Cost</p>
                 </div>
-                <div class="glassmorphism p-6 text-center card-hover">
+                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
                     <div class="text-5xl font-bold gradient-text mb-2">11,400+</div>
                     <p class="text-gray-300" data-en="Connected Organizations" data-ar="المنظمات المتصلة">Connected Organizations</p>
                 </div>
-                <div class="glassmorphism p-6 text-center card-hover">
+                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
                     <div class="text-5xl font-bold gradient-text mb-2">39M+</div>
                     <p class="text-gray-300" data-en="Documents Shared via TEFCA" data-ar="مستندات مشتركة عبر TEFCA">Documents Shared via TEFCA</p>
                 </div>
-                <div class="glassmorphism p-6 text-center card-hover">
+                <div class="glassmorphism stats-card text-center card-hover premium-border p-6">
                     <div class="text-5xl font-bold gradient-text mb-2">36%</div>
                     <p class="text-gray-300" data-en="Data Growth Rate" data-ar="معدل نمو البيانات">Data Growth Rate</p>
                 </div>
@@ -555,14 +822,6 @@
             });
         }
         
-        // Module Management
-        function openModule(moduleNumber) {
-            alert(`Opening Module ${moduleNumber}\nThis will navigate to the module content page.`);
-            // Update progress
-            updateModuleProgress(moduleNumber, 100);
-            updateOverallProgress();
-        }
-        
         function updateModuleProgress(moduleNumber, percent) {
             const progressBar = document.querySelector(`[data-module="${moduleNumber}"]`);
             if (progressBar) {
@@ -610,22 +869,121 @@
             feedback.classList.remove('hidden');
         }
         
-        // Show Transcript
-        function showTranscript() {
-            alert(currentLang === 'en' ? 'Opening transcript...' : 'فتح النص...');
-            // Navigate to transcript page or show modal
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
-        
+
+        // Animated counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = counter.getAttribute('data-target');
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString() + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = Number(target).toLocaleString() + suffix;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    if (entry.target.classList.contains('stats-section')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Keyboard navigation for quiz
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '1' && e.key <= '4') {
+                const options = document.querySelectorAll('.quiz-option');
+                const index = parseInt(e.key) - 1;
+                if (options[index] && options[index].style.pointerEvents !== 'none') {
+                    options[index].click();
+                }
+            }
+        });
+
+        // Enhanced module navigation
+        function openModule(moduleNumber) {
+            const moduleName = currentLang === 'en' ? `Module ${moduleNumber}` : `الوحدة ${moduleNumber}`;
+            showToast(currentLang === 'en' ? `Opening ${moduleName}...` : `جاري فتح ${moduleName}...`);
+            
+            // Simulate loading and update progress
+            setTimeout(() => {
+                updateModuleProgress(moduleNumber, 100);
+                updateOverallProgress();
+                showToast(currentLang === 'en' ? `${moduleName} completed!` : `تم إكمال ${moduleName}!`);
+            }, 500);
+        }
+
+        // Show Transcript with modal
+        function showTranscript() {
+            showToast(currentLang === 'en' ? 'Loading transcript...' : 'جاري تحميل النص...');
+        }
+
         // Download Resources
         function downloadResources() {
-            alert(currentLang === 'en' ? 'Downloading course resources...' : 'تحميل موارد الدورة...');
+            showToast(currentLang === 'en' ? 'Preparing download...' : 'جاري تحضير التحميل...');
         }
-        
+
+        // Reset quiz
+        function resetQuiz() {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'auto';
+                opt.classList.remove('correct', 'wrong');
+            });
+            document.getElementById('quiz-feedback').classList.add('hidden');
+        }
+
         // Initialize
         window.onload = function() {
+            // Hide preloader
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 800);
+
             updateOverallProgress();
             updateContent();
+
+            // Setup intersection observers
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Log welcome message
+            console.log('%c🧠 BrainSait Healthcare Course', 'color: #6C63FF; font-size: 20px; font-weight: bold;');
+            console.log('%cWelcome! Powered by BrainSait', 'color: #00D4FF; font-size: 14px;');
         };
+
+        // Service Worker registration for offline support (if available)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
     </script>
 </body>
 </html>
