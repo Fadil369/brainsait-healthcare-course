@@ -1,4 +1,4 @@
-# BrainSait Interactive Online Course
+# BrainSAIT Interactive Online Course
 ## Healthcare Data Insights - Bilingual (Arabic/English)
 
 This interactive online course explores healthcare data silos and interoperability solutions.
@@ -39,4 +39,4 @@ Simply open `index.html` in a modern web browser.
 6. Future of Healthcare Technology
 
 ### License
-© 2026 BrainSait. All rights reserved.
+© 2026 BrainSAIT. All rights reserved.
