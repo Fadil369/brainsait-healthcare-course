@@ -366,16 +366,23 @@
                             </div>
                             <div class="bs-badge" id="completion-status-badge">
                                 <i class="fas fa-clock"></i>
-                                <span data-en="In progress" data-ar="قيد التقدم">In progress</span>
+                                <span data-en="Not started" data-ar="لم يبدأ">Not started</span>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="flex flex-col sm:flex-row gap-3">
                         <button id="mark-complete-btn" class="bs-btn bs-btn-primary px-6 py-3">
                             <i class="fas fa-check"></i>
                             <span data-en="Mark Module Complete" data-ar="تحديد الوحدة كمكتملة">Mark Module Complete</span>
                         </button>
+                        <button id="reset-progress-btn" class="bs-btn px-6 py-3">
+                            <i class="fas fa-redo"></i>
+                            <span data-en="Reset Progress" data-ar="إعادة تعيين التقدم">Reset Progress</span>
+                        </button>
                     </div>
+                </div>
+                <div class="mt-4 text-sm bs-muted" data-en="Note: Progress is stored in your browser's local storage. Clearing browser data will reset your progress." data-ar="ملاحظة: يتم تخزين التقدم في التخزين المحلي للمتصفح. مسح بيانات المتصفح سيعيد تعيين تقدمك.">
+                    Note: Progress is stored in your browser's local storage. Clearing browser data will reset your progress.
                 </div>
             </section>
 
@@ -401,6 +408,7 @@
             const display = document.getElementById('module-progress-display');
             const statusBadge = document.getElementById('completion-status-badge');
             const markCompleteBtn = document.getElementById('mark-complete-btn');
+            const resetProgressBtn = document.getElementById('reset-progress-btn');
             
             function updateProgressDisplay() {
                 const progress = parseInt(localStorage.getItem(progressKey) || '0');
@@ -453,6 +461,36 @@
                     // Update parent page progress
                     if (window.parent && window.parent.updateProgressUI) {
                         window.parent.updateProgressUI();
+                    }
+                });
+            }
+            
+            if (resetProgressBtn) {
+                resetProgressBtn.addEventListener('click', function() {
+                    // Confirm reset
+                    const currentLang = window.getCourseLang ? window.getCourseLang() : 'en';
+                    const confirmMessage = currentLang === 'ar' 
+                        ? 'هل أنت متأكد أنك تريد إعادة تعيين التقدم لهذه الوحدة؟'
+                        : 'Are you sure you want to reset progress for this module?';
+                    
+                    if (confirm(confirmMessage)) {
+                        localStorage.setItem(progressKey, '0');
+                        updateProgressDisplay();
+                        
+                        // Show confirmation
+                        const originalText = resetProgressBtn.innerHTML;
+                        resetProgressBtn.innerHTML = '<i class="fas fa-check"></i><span data-en="Progress Reset!" data-ar="تم إعادة التعيين!">Progress Reset!</span>';
+                        resetProgressBtn.classList.add('bg-blue-600/30', 'border-blue-500/40');
+                        
+                        setTimeout(() => {
+                            resetProgressBtn.innerHTML = '<i class="fas fa-redo"></i><span data-en="Reset Progress" data-ar="إعادة تعيين التقدم">Reset Progress</span>';
+                            resetProgressBtn.classList.remove('bg-blue-600/30', 'border-blue-500/40');
+                        }, 1500);
+                        
+                        // Update parent page progress
+                        if (window.parent && window.parent.updateProgressUI) {
+                            window.parent.updateProgressUI();
+                        }
                     }
                 });
             }

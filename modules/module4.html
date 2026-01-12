@@ -277,6 +277,7 @@
             const display = document.getElementById('module-progress-display');
             const statusBadge = document.getElementById('completion-status-badge');
             const markCompleteBtn = document.getElementById('mark-complete-btn');
+            const resetProgressBtn = document.getElementById('reset-progress-btn');
             
             function updateProgressDisplay() {
                 const progress = parseInt(localStorage.getItem(progressKey) || '0');
@@ -329,6 +330,36 @@
                     // Update parent page progress
                     if (window.parent && window.parent.updateProgressUI) {
                         window.parent.updateProgressUI();
+                    }
+                });
+            }
+            
+            if (resetProgressBtn) {
+                resetProgressBtn.addEventListener('click', function() {
+                    // Confirm reset
+                    const currentLang = window.getCourseLang ? window.getCourseLang() : 'en';
+                    const confirmMessage = currentLang === 'ar' 
+                        ? 'هل أنت متأكد أنك تريد إعادة تعيين التقدم لهذه الوحدة؟'
+                        : 'Are you sure you want to reset progress for this module?';
+                    
+                    if (confirm(confirmMessage)) {
+                        localStorage.setItem(progressKey, '0');
+                        updateProgressDisplay();
+                        
+                        // Show confirmation
+                        const originalText = resetProgressBtn.innerHTML;
+                        resetProgressBtn.innerHTML = '<i class="fas fa-check"></i><span data-en="Progress Reset!" data-ar="تم إعادة التعيين!">Progress Reset!</span>';
+                        resetProgressBtn.classList.add('bg-blue-600/30', 'border-blue-500/40');
+                        
+                        setTimeout(() => {
+                            resetProgressBtn.innerHTML = '<i class="fas fa-redo"></i><span data-en="Reset Progress" data-ar="إعادة تعيين التقدم">Reset Progress</span>';
+                            resetProgressBtn.classList.remove('bg-blue-600/30', 'border-blue-500/40');
+                        }, 1500);
+                        
+                        // Update parent page progress
+                        if (window.parent && window.parent.updateProgressUI) {
+                            window.parent.updateProgressUI();
+                        }
                     }
                 });
             }
